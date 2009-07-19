@@ -1,7 +1,7 @@
 class Integer
   def perfect?
     return false unless self > 0
-    self.to_s =~ /(6|8)$/ ? true : false
+    proper_divisors.inject(0) {|sum, div| sum + div} == self
   end
 
   def proper_divisors
