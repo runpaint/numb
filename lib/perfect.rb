@@ -7,6 +7,11 @@ class Integer
     sum_of_divisors > (2 * self)
   end
 
+  def deficient?
+    return false unless self > 0
+    sum_of_divisors < (2 * self)
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
