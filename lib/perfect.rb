@@ -52,6 +52,10 @@ class Integer
     divisors.select {|d| d.prime? }.all?{|prime| divisors.include? (prime ** 2)}
   end
 
+  def achilles?
+    powerful? and not perfect_power?
+  end
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
