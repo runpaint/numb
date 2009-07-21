@@ -8,6 +8,13 @@ class Integer
     divisors.reduce(:+) == self
   end
 
+  def perfect_power?
+    return false unless self > 0
+    return true if self == 1
+    divisors = positive_divisors
+    (2..Math.log2(self)).any? { |pow| divisors.any? {|div| (div ** pow) == self} } 
+  end
+
   def polite? 
     return true if self == 1
     politeness > 0
