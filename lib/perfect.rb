@@ -33,6 +33,11 @@ class Integer
     positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
 
+  def hilbert?
+    return false unless self > 0
+    ((self - 1) % 4) == 0
+  end
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
