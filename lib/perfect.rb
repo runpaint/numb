@@ -18,7 +18,14 @@ class Integer
   end
 
   def triangular?
+    return false if self < 0
     root = Math.sqrt(8 * self + 1)
+    root == root.floor
+  end
+
+  def square?
+    return false if self < 0
+    root = Math.sqrt(self)
     root == root.floor
   end
 
