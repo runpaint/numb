@@ -8,7 +8,6 @@ class Integer
     divisors.reduce(:+) == self
   end
 
-
   def polite? 
     return true if self == 1
     politeness > 0
@@ -16,6 +15,11 @@ class Integer
 
   def impolite? 
     not polite?
+  end
+
+  def triangular?
+    root = Math.sqrt(8 * self + 1)
+    root == root.floor
   end
 
   def politeness
