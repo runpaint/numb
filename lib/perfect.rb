@@ -18,6 +18,10 @@ class Integer
     not polite?
   end
 
+  def politeness
+    positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
+  end
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
@@ -25,7 +29,7 @@ class Integer
   def positive_divisors
     return [] unless self >= 0
     (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                              map {|n| [n, self/n]}.flatten
+                              map {|n| [n, self/n]}.flatten.uniq
   end
 
   def digital_root
