@@ -8,10 +8,24 @@ class Integer
     divisors.reduce(:+) == self
   end
 
+
+  def polite? 
+    return true if self == 1
+    positive_divisors.select{|d| d > 1}.any?{|d| d.odd?}
+  end
+
+  def impolite? 
+    not polite?
+  end
+
   def proper_positive_divisors
-    return [] unless self > 1
-    (2..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                              map {|n| [n, self/n]}.flatten << 1
+    positive_divisors.reject {|d| d == self }
+  end
+
+  def positive_divisors
+    return [] unless self >= 0
+    (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
+                              map {|n| [n, self/n]}.flatten
   end
 
   def digital_root
