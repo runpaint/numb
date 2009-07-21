@@ -1,4 +1,11 @@
+# coding: utf-8
+
 class Integer
+
+  def abundant?
+    return false unless self > 0
+    sum_of_divisors > (2 * self)
+  end
 
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
@@ -23,7 +30,7 @@ class Integer
   def impolite? 
     not polite?
   end
-
+  
   def triangular?
     return false if self < 0
     root = Math.sqrt(8 * self + 1)
@@ -65,6 +72,11 @@ class Integer
     (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
                               map {|n| [n, self/n]}.flatten.uniq
   end
+
+  def sum_of_divisors
+    positive_divisors.reduce(:+)
+  end
+  alias σ :sum_of_divisors
 
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
