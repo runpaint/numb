@@ -38,6 +38,13 @@ class Integer
     ((self - 1) % 4) == 0
   end
 
+  def powerful?
+    return false unless self > 0
+    require 'prime'
+    divisors = positive_divisors
+    divisors.select {|d| d.prime? }.all?{|prime| divisors.include? (prime ** 2)}
+  end
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
