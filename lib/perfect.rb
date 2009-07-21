@@ -11,7 +11,7 @@ class Integer
 
   def polite? 
     return true if self == 1
-    positive_divisors.select{|d| d > 1}.any?{|d| d.odd?}
+    politeness > 0
   end
 
   def impolite? 
