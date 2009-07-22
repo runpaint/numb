@@ -53,6 +53,7 @@ class Integer
     end
     false
   end
+  alias :pseudo_perfect? :semi_perfect?
 
   def square?
     return false if self < 0
