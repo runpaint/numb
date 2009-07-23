@@ -152,6 +152,12 @@ class Integer
   end
   alias :harshadmorphic? :nivenmorphic?
 
+  def narcissistic?
+    self == digits.map{|d| d ** digits.size}.reduce(:+)
+  end
+  alias :armstrong? :narcissistic?
+  alias :plus_perfect? :narcissistic?
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
