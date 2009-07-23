@@ -141,9 +141,16 @@ class Integer
 
   def harshad?
     return false unless self >= 0
-    (self %  digits.reduce(:+)) == 0
+    (self %  digital_sum) == 0
   end
   alias :niven? :harshad?
+
+  def nivenmorphic?
+    return true if self == 0
+    return false unless self > 0
+    niven? && self.to_s.end_with?(digital_sum.to_s)
+  end
+  alias :harshadmorphic? :nivenmorphic?
 
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
@@ -162,6 +169,10 @@ class Integer
 
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
+  end
+
+  def digital_sum
+    digits.reduce(:+)
   end
 
   def digits
