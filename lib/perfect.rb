@@ -1,5 +1,7 @@
 # coding: utf-8
 
+require 'prime'
+
 class Integer
 
   def abundant?
@@ -20,6 +22,30 @@ class Integer
     divisors.reduce(:+) == self
   end
 
+  # Implementation of Stewart, B. M. (1954), "Sums of distinct divisors",
+  # American Journal of Mathematics 76: 779–785, doi:10.2307/2372651,
+  # MR0064800
+  def practical?
+    sum = 1
+    k = 2
+    n = self
+    while (n >= k)
+      s = 1
+      u = 0
+      while (n % k == 0)
+        n = n/k
+        s = s * k + 1
+        u += 1
+      end
+      unless (u == 0)
+        return false if (k > sum + 1)
+        sum *= s
+      end
+      k += (k == 2) ? 1 : 2
+    end
+    true
+  end
+
   def perfect_power?
     return false unless self > 0
     return true if self == 1
@@ -32,6 +58,25 @@ class Integer
     politeness > 0
   end
 
+#  def practical?
+#    return false unless self > 0
+#    return true if (self & (self - 1)) == 0
+#    return true if even? and perfect?
+#    positive_divisors.reduce(:+) >= (2 * self) - 1
+##    prime_factors = positive_divisors.select{|d| d.prime?}
+##    return false unless prime_factors.first == 2
+##    x = 1
+##    prime_factors.sort.each_with_index do |pf, idx|
+##      next if idx == 0
+###      x = 1
+###      prime_factors[0..idx-1].each_with_index do |f, idx|
+###        x *= f ** (idx + 1).sum_of_divisors
+###      end
+##      x *= prime_factors[idx-1].sum_of_divisors
+##      return false unless (pf <= x + 1)
+##    end
+##    true
+#  end
   def impolite? 
     not polite?
   end
