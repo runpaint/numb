@@ -9,10 +9,10 @@ class Integer
     sum_of_divisors > (2 * self)
   end
 
-  def curious?
-    (self ** 2).to_s.end_with? self.to_s
+  def automorphic?(n=1)
+    ((n * self) ** 2).to_s.end_with? self.to_s
   end
-  alias :automorphic? :curious?
+  alias :curious? :automorphic?
 
   def deficient?
     return false unless self > 0
