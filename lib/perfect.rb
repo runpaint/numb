@@ -58,25 +58,6 @@ class Integer
     politeness > 0
   end
 
-#  def practical?
-#    return false unless self > 0
-#    return true if (self & (self - 1)) == 0
-#    return true if even? and perfect?
-#    positive_divisors.reduce(:+) >= (2 * self) - 1
-##    prime_factors = positive_divisors.select{|d| d.prime?}
-##    return false unless prime_factors.first == 2
-##    x = 1
-##    prime_factors.sort.each_with_index do |pf, idx|
-##      next if idx == 0
-###      x = 1
-###      prime_factors[0..idx-1].each_with_index do |f, idx|
-###        x *= f ** (idx + 1).sum_of_divisors
-###      end
-##      x *= prime_factors[idx-1].sum_of_divisors
-##      return false unless (pf <= x + 1)
-##    end
-##    true
-#  end
   def impolite? 
     not polite?
   end
