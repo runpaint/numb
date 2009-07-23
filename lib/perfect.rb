@@ -139,6 +139,12 @@ class Integer
     end
   end
 
+  def harshad?
+    return false unless self >= 0
+    (self %  digits.reduce(:+)) == 0
+  end
+  alias :niven? :harshad?
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
