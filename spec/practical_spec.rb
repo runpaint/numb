@@ -16,6 +16,15 @@ describe Integer, "#practical?" do
     end
   end
 
-  it "returns true for any power of two"
-  it "returns true for any perfect number"
+  it "returns true for powers of two" do
+    [38, 41, 2, 5].each do |pow|
+      (2 ** pow).should be_practical
+    end
+  end
+
+  it "returns true for perfect numbers" do
+    [6, 28, 496, 8128, 33550336, 8589869056, 137438691328].each do |n|
+      n.should be_practical
+    end
+  end
 end
