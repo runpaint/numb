@@ -19,6 +19,10 @@ class Integer
     sum_of_divisors < (2 * self)
   end
 
+  def dudeney?
+    Math.cbrt(self) == self.digits.reduce(:+)
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
@@ -139,5 +143,9 @@ class Integer
 
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
+  end
+
+  def digits
+    self.to_s.split(//).map{|d| d.to_i}
   end
 end
