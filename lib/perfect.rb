@@ -9,6 +9,11 @@ class Integer
     sum_of_divisors > (2 * self)
   end
 
+  def curious?
+    (self ** 2).to_s.end_with? self.to_s
+  end
+  alias :automorphic? :curious?
+
   def deficient?
     return false unless self > 0
     sum_of_divisors < (2 * self)
