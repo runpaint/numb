@@ -104,6 +104,11 @@ class Integer
     positive_divisors.reject{|d| d==1}.none? {|d| d.square?}
   end
 
+  def smith?
+    return false if prime?
+    digital_sum == prime_division.map{|d,e| d.digital_sum * e}.reduce(:+)
+  end
+
   def politeness
     positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
