@@ -73,6 +73,10 @@ class Integer
     root == root.floor
   end
 
+  def trimorphic?
+    (self ** 3).to_s.end_with? self.to_s
+  end
+
   def semi_perfect?
     return false if deficient?
     return true if perfect?
