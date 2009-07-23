@@ -100,6 +100,10 @@ class Integer
     root == root.floor
   end
 
+  def square_free?
+    positive_divisors.reject{|d| d==1}.none? {|d| d.square?}
+  end
+
   def politeness
     positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
@@ -183,5 +187,10 @@ class Integer
 
   def digits
     self.to_s.split(//).map{|d| d.to_i}
+  end
+
+  def factor?(n)
+    return false if n == 0
+    (self % n) == 0
   end
 end
