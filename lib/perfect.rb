@@ -28,6 +28,12 @@ class Integer
     !!to_s.match(/^[01825][018253]*$/)
   end
 
+  def emrip?
+    return false unless prime?
+    reversed = to_s.reverse.to_i
+    reversed != self and reversed.prime?
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
