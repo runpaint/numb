@@ -109,6 +109,15 @@ class Integer
     digital_sum == prime_division.map{|d,e| d.digital_sum * e}.reduce(:+)
   end
 
+  def smarandache_wellin?
+    prime_str = ''
+    Prime.each do |prime|
+      prime_str << prime.to_s
+      return true if prime_str == to_s
+      return false if prime_str.length >= to_s.length
+    end
+  end
+
   def politeness
     positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
