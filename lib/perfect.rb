@@ -34,12 +34,20 @@ class Integer
     reversed != self and reversed.prime?
   end
 
+  def economical?
+    equidigital? or frugal?
+  end
+
   def equidigital?
     digits.size == prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
   end
 
   def extravagant?
     digits.size < prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
+  end
+
+  def factorion?
+    [1, 2, 145, 40585].include? self
   end
 
   def frugal?
