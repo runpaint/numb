@@ -23,6 +23,11 @@ class Integer
     Math.cbrt(self) == self.digits.reduce(:+)
   end
 
+  def dihedral_prime?
+    return false unless prime?
+    !!to_s.match(/^[01825][018253]*$/)
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
