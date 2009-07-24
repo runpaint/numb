@@ -34,6 +34,10 @@ class Integer
     reversed != self and reversed.prime?
   end
 
+  def equidigital?
+    digits.size == prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
