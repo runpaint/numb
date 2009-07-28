@@ -81,6 +81,14 @@ class Integer
     false
   end
 
+  def parasitic?(n=nil)
+    return (1..9).any?{|x| parasitic?(x)} if n.nil?
+    return true if (n == 1 && self == 1)
+    return false unless self > 9
+    raise ArgumentError unless (n > 0 && n < 10)
+    (n*self) == [digits.last, digits[0..-2]].join.to_i
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
