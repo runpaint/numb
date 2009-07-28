@@ -61,6 +61,14 @@ class Integer
     a.length == (b.length - 1)
   end
 
+  def carol?
+    return true if self == 7
+    return true if self == -1
+    a, b = to_s(2).match(/^(1+)0(1+)$/).to_a[1..-1]
+    return false if (a.nil? or b.nil?)
+    b.length == (a.length + 3)
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
