@@ -16,4 +16,10 @@ describe Integer, "#kaprekar?" do
       number.should_not be_kaprekar
     end
   end
+
+  it "returns false for negative numbers" do
+    [-5, -9, -297, -345].each do |number|
+      number.should_not be_kaprekar
+    end
+  end
 end
