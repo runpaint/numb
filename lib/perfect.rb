@@ -69,6 +69,18 @@ class Integer
     b.length == (a.length + 3)
   end
 
+  def keith?
+    return false unless (n = self) > 9
+    terms = n.to_s.split(//).map{|d| d.to_i}
+    loop do
+      return true if (n = terms.reduce(:+)) == self
+      return false if n > self
+      terms.shift
+      terms << n
+    end
+    false
+  end
+
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/
     return false if self != 6 and digital_root != 1  
