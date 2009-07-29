@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'prime'
+require_relative 'perfect/friedman'
 
 class Integer
 
@@ -52,6 +53,11 @@ class Integer
 
   def frugal?
     digits.size > prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
+  end
+
+  # For Friedman
+  def concat(other)
+    (to_s + other.to_s).to_i
   end
 
   def perfect?
