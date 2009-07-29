@@ -164,7 +164,12 @@ class Integer
     # numbers use the maximumn number of operators, so we can usually find the
     # correct equation before we have to solve the complex, expensive
     # equations
-    result = @equations.sort_by{ |e| e.operators.size }.threadify do |equation|
+
+    @equations.uniq!.sort_by!{ 
+      |e| e.operators.size || e.operators.include?(:**) 
+    }
+    
+    result = @equations.threadify do |equation|
       if equation.solution == self
         @friedman_equation = equation  
         threadify!(:solved)
