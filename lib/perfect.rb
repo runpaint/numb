@@ -54,6 +54,19 @@ class Integer
     digits.size > prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
   end
   
+  def mms_pair?(other)
+    return false unless (self == other.succ) || (other == self.succ)
+    sum = [self,other].map do |n|
+      (n.digits + n.prime_factors.map{|p| p.digits}.flatten).reduce(:+)
+    end
+    sum.first == sum.last
+  end
+  alias :maris_mcgwire_sosa_pair? :mms_pair?
+
+  def prime_factors
+    prime_division.map{|pair| [pair.first] * pair.last}.flatten
+  end
+
   def kynea?
     return true if self == 7
     a, b = to_s(2).match(/^(10+)(1+)$/).to_a[1..-1]
