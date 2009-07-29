@@ -7,7 +7,7 @@ require 'prime'
    nivenmorphic parasitic perfect perfect_power polite powerful practical self
    self_descriptive semi_perfect smarandache_wellin smith square square_free
    triangular trimorphic undulating vampire weird}.each do |predicate|
-  require_relative "perfect/#{predicate}"
+  require_relative "numb_the/#{predicate}"
 end
 
 class Integer
