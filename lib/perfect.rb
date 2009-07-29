@@ -54,6 +54,66 @@ class Integer
   def frugal?
     digits.size > prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
   end
+  
+  def mms_pair?(other)
+    return false unless (self == other.succ) || (other == self.succ)
+    sum = [self,other].map do |n|
+      (n.digits + n.prime_factors.map{|p| p.digits}.flatten).reduce(:+)
+    end
+    sum.first == sum.last
+  end
+  alias :maris_mcgwire_sosa_pair? :mms_pair?
+
+  def prime_factors
+    prime_division.map{|pair| [pair.first] * pair.last}.flatten
+  end
+
+  def kynea?
+    return true if self == 7
+    a, b = to_s(2).match(/^(10+)(1+)$/).to_a[1..-1]
+    return false if (a.nil? or b.nil?)
+    a.length == (b.length - 1)
+  end
+
+  def kaprekar?
+    return true if self == 1
+    sdigits = (self ** 2).digits
+    (1..sdigits.size-1).each do |first|
+      a = sdigits.first(first).join.to_i
+      b = sdigits.last(sdigits.size-first).join.to_i
+      next if [a,b].any?{|n| n.zero?}
+      return true if (a + b) == self
+    end
+    false
+  end
+
+  def carol?
+    return true if self == 7
+    return true if self == -1
+    a, b = to_s(2).match(/^(1+)0(1+)$/).to_a[1..-1]
+    return false if (a.nil? or b.nil?)
+    b.length == (a.length + 3)
+  end
+
+  def keith?
+    return false unless (n = self) > 9
+    terms = n.to_s.split(//).map{|d| d.to_i}
+    loop do
+      return true if (n = terms.reduce(:+)) == self
+      return false if n > self
+      terms.shift
+      terms << n
+    end
+    false
+  end
+
+  def parasitic?(n=nil)
+    return (1..9).any?{|x| parasitic?(x)} if n.nil?
+    return true if (n == 1 && self == 1)
+    return false unless self > 9
+    raise ArgumentError unless (n > 0 && n < 10)
+    (n*self) == [digits.last, digits[0..-2]].join.to_i
+  end
 
   # For Friedman
   def concat(other)
@@ -116,6 +176,24 @@ class Integer
 
   def trimorphic?
     (self ** 3).to_s.end_with? self.to_s
+  end
+
+  def self?
+    # Formula from: Kaprekar, D. R. The Mathematics of New Self-Numbers
+    #  Devaiali (1963): 19 - 20
+    dr_star = digital_root.odd? ? (digital_root + 9) / 2 : digital_root / 2
+    0.upto(digits.size).none? do |i|
+      (self - dr_star - 9 * i) + (self - dr_star - 9 * i).sod == self
+    end
+  end
+  alias :colombian? :self?
+  alias :devlai? :self?
+
+  def self_descriptive?(base=10)
+    dig = digits
+    return false unless digits.size == base
+    dig.each_with_index{|d,i| return false unless dig.count(i) == d}
+    true
   end
 
   def semi_perfect?
@@ -213,6 +291,24 @@ class Integer
   alias :armstrong? :narcissistic?
   alias :plus_perfect? :narcissistic?
 
+  def vampire?
+    return false unless !prime? and digits.size.even?
+    digits.permutation.map do |perm|
+      [:first,:last].map {|pos| perm.send(pos,(digits.size/2)).join.to_i }.sort
+    end.uniq.any? do |fangs|
+      fangs.reduce(:*) == self
+    end
+  end
+
+  def undulating?
+    dig = digits
+    return false unless digits.size >= 3 and digits[0] != digits[1]
+    dig.each_with_index do |d,i| 
+      return false unless i.odd? ? d == dig[1] : d == dig[0]
+    end
+    true
+  end
+
   def proper_positive_divisors
     positive_divisors.reject {|d| d == self }
   end
@@ -235,6 +331,8 @@ class Integer
   def digital_sum
     digits.reduce(:+)
   end
+  alias :sum_of_digits :digital_sum
+  alias :sod :digital_sum
 
   def digits
     self.to_s.split(//).map{|d| d.to_i}
