@@ -159,6 +159,13 @@ class Integer
     (self ** 3).to_s.end_with? self.to_s
   end
 
+  def self_descriptive?(base=10)
+    dig = digits
+    return false unless digits.size == base
+    dig.each_with_index{|d,i| return false unless dig.count(i) == d}
+    true
+  end
+
   def semi_perfect?
     return false if deficient?
     return true if perfect?
