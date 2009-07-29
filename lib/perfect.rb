@@ -172,6 +172,17 @@ class Integer
     (self ** 3).to_s.end_with? self.to_s
   end
 
+  def self?
+    # Formula from: Kaprekar, D. R. The Mathematics of New Self-Numbers
+    #  Devaiali (1963): 19 - 20
+    dr_star = digital_root.odd? ? (digital_root + 9) / 2 : digital_root / 2
+    0.upto(digits.size).none? do |i|
+      (self - dr_star - 9 * i) + (self - dr_star - 9 * i).sod == self
+    end
+  end
+  alias :colombian? :self?
+  alias :devlai? :self?
+
   def self_descriptive?(base=10)
     dig = digits
     return false unless digits.size == base
@@ -314,6 +325,8 @@ class Integer
   def digital_sum
     digits.reduce(:+)
   end
+  alias :sum_of_digits :digital_sum
+  alias :sod :digital_sum
 
   def digits
     self.to_s.split(//).map{|d| d.to_i}
