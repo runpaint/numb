@@ -5,8 +5,8 @@ require 'prime'
    economical emrip equidigital extravagant factorion friedman frugal happy
    harshad hilbert impolite kaprekar keith kynea mms_pair narcissistic
    nivenmorphic parasitic perfect perfect_power polite powerful practical self
-   self_descriptive semi_perfect smarandache_wellin smith square square_free
-   triangular trimorphic undulating vampire weird}.each do |predicate|
+   self_descriptive semi_perfect semiprime smarandache_wellin smith square
+   square_free triangular trimorphic undulating vampire weird}.each do |predicate|
   require_relative "numb_the/#{predicate}"
 end
 
