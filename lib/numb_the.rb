@@ -20,6 +20,12 @@ class Integer
   alias :ω :number_of_distinct_prime_factors
   alias :omega :number_of_distinct_prime_factors
 
+  def number_of_prime_factors
+    prime_factors.size
+  end
+  alias :Ω :number_of_prime_factors
+  alias :bigomega :number_of_prime_factors
+
   def prime_factors
     return [] if zero?
     prime_division.map{|pair| [pair.first] * pair.last}.flatten
