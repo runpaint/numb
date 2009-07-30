@@ -6,7 +6,7 @@ require 'prime'
    harshad hilbert hyperperfect impolite kaprekar keith kynea mms_pair 
    narcissistic nivenmorphic parasitic perfect perfect_power polite polydivisible
    powerful practical self self_descriptive semi_perfect semiprime 
-   smarandache_wellin smith square square_free triangular trimorphic
+   smarandache_wellin smith sphenic square square_free triangular trimorphic
    undulating vampire weird
 }.each do |predicate|
   require_relative "numb_the/#{predicate}"
