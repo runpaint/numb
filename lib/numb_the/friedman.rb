@@ -58,16 +58,46 @@ class Equation
     normalize!
   end
   
-  def solution
-    return @@solution[hash] if @@solution.key?(hash)
-    @@solution[hash] = a.to_i.send(operator, b.to_i) rescue nil
+  def solution(*bind)
+    raise ArgumentError unless bind.size == arity
+    bound = [@a,@b]
+    
+    return @@solution[hash] if arity == 0 && @@solution.key?(hash)
+    
+    unless bind.empty?
+      bound.map! do |var|
+        case var
+          when Equation
+            var.solution(*bind.shift(var.arity))
+          when Symbol
+            bind.shift
+          else
+            var
+        end
+      end
+    end  
+    
+    p "#{self}: #{bound.first} #{operator} #{bound.last}"
+    @@solution[hash] = bound.first.send(operator, bound.last) rescue nil
   end
   alias :to_i :solution
+
+  def arity
+    [@a,@b].map do |var|
+      case var
+        when Equation then var.arity
+        when Symbol   then 1
+        else               0
+      end
+    end.reduce(:+)
+  end
 
   def normalize!
     if [:+,:*].include?(operator) 
       if [@a,@b].all?{|a| a.respond_to?(:<=>)}
-        @a,@b = [@a,@b].sort
+        if @a.class == @b.class
+          @a,@b = [@a,@b].sort
+        end
       else
         if a.is_a?(Equation)
           @a,@b = @b,@a
