@@ -13,8 +13,15 @@ require 'prime'
 end
 
 class Integer
+  
+  def number_of_distinct_prime_factors
+    prime_factors.uniq.size
+  end
+  alias :ω :number_of_distinct_prime_factors
+  alias :omega :number_of_distinct_prime_factors
 
   def prime_factors
+    return [] if zero?
     prime_division.map{|pair| [pair.first] * pair.last}.flatten
   end
 
