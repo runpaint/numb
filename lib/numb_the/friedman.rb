@@ -65,13 +65,19 @@ class Equation
   alias :to_i :solution
 
   def normalize!
-    if [:+,:*].include?(operator) and [@a,@b].all?{|a| a.respond_to?(:<=>)}
-     @a,@b = [@a,@b].minmax
+    if [:+,:*].include?(operator) 
+      if [@a,@b].all?{|a| a.respond_to?(:<=>)}
+        @a,@b = [@a,@b].sort
+      else
+        if a.is_a?(Equation)
+          @a,@b = @b,@a
+        end
+      end
     end 
   end
 
   def hash
-    [a.to_i, operator, b.to_i].join.hash
+    [a, operator, b].join.hash
   end
 
   def eql?(other)
