@@ -124,7 +124,7 @@ class Integer
     require 'threadify'
     @equations = []
     # Assume digits = [1,2,3,4]
-    digits.permutation.to_a.uniq.threadify do |perm|
+    digits.permutation.to_a.uniq do |perm|
       # [[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4], [1, 3, 4, 2], [1, 4, 2, 3],
       # [1, 4, 3, 2], [2, 1, 3, 4], [2, 1, 4, 3], [2, 3, 1, 4], [2, 3, 4, 1],
       # [2, 4, 1, 3], [2, 4, 3, 1], [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4],
@@ -139,13 +139,14 @@ class Integer
 
         # Skip the trivial permutation of [1234]
         next if concat_perm == [self]
-        
+       
         # Ignore zero as an individual element as it has no bearing on the
         # result
         concat_perm -= [0]    
         
         # Of each of these permutations we now need to consider how the terms
-        # would be grouped if parenthesised. For example, if chunk == [1,2,34]
+        # would be grouped if parenthesised. For example, if chunk ==
+        # [1,2,34]...
         concat_perm.chunk.map do |c| 
           c.map{|e| e.is_a?(Array) && e.size == 1 ? e.first : e}
         end.uniq.each do |chunk|
@@ -153,7 +154,20 @@ class Integer
           #          [[1, 2], [34]], [[1, 2, 34]]]
           # TODO: Needed?
           next if chunk.size == 1
+          return true if [:*, :+, :-, :/,].any? do |op|
+            chunk.flatten.reduce(op) == self
+          end   
+
           Equation.permutation(chunk).each do |equation|
+            # We've already checked the case where the operator is the same
+            # throughout
+            next if equation.operators.uniq.size == 1 && equation.operator != :**
+            if chunk.any?{|e| e.is_a?(Array)}
+              next if equation.operators.all?{|o| [:+,:-].any?{|o2| o2 == o}}
+              next if equation.a == 1 && equation.operator == :** && equation.b.is_a?(Equation)
+              next if equation.a == 0 && equation.operator == :** && equation.b.is_a?(Equation)
+              next if equation.a == 0 && equation.operator == :* && equation.b.is_a?(Equation)
+            end
             @equations << equation
           end
         end
@@ -165,17 +179,18 @@ class Integer
     # correct equation before we have to solve the complex, expensive
     # equations
 
-    @equations.uniq!.sort_by!{ 
+    @equations.sort_by!{ 
       |e| e.operators.size || e.operators.include?(:**) 
     }
-    
+    solved = {}
     result = @equations.threadify do |equation|
+      next if solved.key?(equation)
       if equation.solution == self
         @friedman_equation = equation  
         threadify!(:solved)
       end
+      solved[equation] = true
     end
     result == :solved ? true : false
   end
-
 end
