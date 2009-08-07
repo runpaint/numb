@@ -5,7 +5,7 @@ describe Integer, "#weird?" do
                   16730,16870,17272,17570,17990,18410,18830,18970,
                   19390,19670]
   it "returns true if the number is weird" do
-    WEIRD.each do |number|
+    WEIRD.sample(10).each do |number|
       number.should be_weird
     end
   end
