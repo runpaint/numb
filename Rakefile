@@ -4,10 +4,10 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "perfect"
-    gem.summary = %Q{Determine whether an integer is a perfect number}
+    gem.name = "numb"
+    gem.summary = %Q{Experiments in number theory with new predicate methods for Integer.}
     gem.email = "runrun@runpaint.org"
-    gem.homepage = "http://github.com/runpaint/perfect"
+    gem.homepage = "http://github.com/runpaint/numb"
     gem.authors = ["Run Paint Run Run"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -41,7 +41,7 @@ Rake::RDocTask.new do |rdoc|
   end
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "perfect #{version}"
+  rdoc.title = "numb #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
