@@ -1,6 +1,7 @@
-= perfect
+= numb
 
-Description goes here.
+Experiments in number theory by extending the Integer class with predicate
+methods such as #perfect? and #weird?.
 
 == Copyright
 
