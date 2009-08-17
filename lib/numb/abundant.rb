@@ -4,7 +4,8 @@ class Integer
   # its divisors exceeds 2n. (See Integer#σ to compute the sum of the divisors
   # of an arbitrary integer).
   #
-  # Returns true if the number is abundant; false otherwise.
+  # Returns true if the number is abundant; false otherwise. Aliased to
+  # Integer#excessive?.
   #
   #     96.abundant?   #=> true
   #     100.abundant?  #=> true
@@ -14,4 +15,6 @@ class Integer
     return false unless self > 0
     sum_of_divisors > (2 * self)
   end
+
+  alias :excessive? :abundant?
 end
