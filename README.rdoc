@@ -1,4 +1,3 @@
-# coding: utf-8
 = numb
 
 Experiments in number theory by extending the Integer class with predicate
