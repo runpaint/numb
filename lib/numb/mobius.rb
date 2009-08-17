@@ -1,7 +1,7 @@
 # coding: utf-8
 class Integer
 
-  def μ
+  def mobius
     case
       when (self < 1)                 then nil
       when (square_free? and ω.even?) then 1
@@ -10,6 +10,6 @@ class Integer
     end
   end
 
-  alias :möbius :μ
-  alias :mobius :μ
+  alias :möbius :mobius
+  alias :μ :mobius
 end

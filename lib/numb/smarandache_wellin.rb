@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def smarandache_wellin?
     prime_str = ''

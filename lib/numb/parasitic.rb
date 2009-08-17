@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def parasitic?(n=nil)
     return (1..9).any?{|x| parasitic?(x)} if n.nil?

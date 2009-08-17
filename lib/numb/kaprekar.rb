@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def kaprekar?
     return true if self == 1

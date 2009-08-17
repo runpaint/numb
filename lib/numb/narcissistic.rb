@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def narcissistic?
     self == digits.map{|d| d ** digits.size}.reduce(:+)

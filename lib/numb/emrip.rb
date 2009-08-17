@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def emrip?
     return false unless prime?

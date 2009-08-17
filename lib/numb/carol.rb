@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def carol?
     return true if self == 7

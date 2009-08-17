@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def mms_pair?(other)
     return false unless (self == other.succ) || (other == self.succ)

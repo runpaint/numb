@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def weird?
     return false unless self > 0

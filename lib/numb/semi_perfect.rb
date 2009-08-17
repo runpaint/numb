@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def semi_perfect?
     return false if deficient?

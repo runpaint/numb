@@ -1,7 +1,10 @@
+# coding: utf-8
 = numb
 
 Experiments in number theory by extending the Integer class with predicate
 methods such as #perfect? and #weird?.
+
+Requires Ruby 1.9.
 
 == Copyright
 

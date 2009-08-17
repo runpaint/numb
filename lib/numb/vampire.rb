@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def vampire?
     return false unless !prime? and digits.size.even?

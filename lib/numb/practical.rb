@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   # Implementation of Stewart, B. M. (1954), "Sums of distinct divisors",
   # American Journal of Mathematics 76: 779–785, doi:10.2307/2372651,

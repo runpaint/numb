@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'rubygems'
 require 'rake'
 
@@ -44,5 +45,7 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "numb #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+  rdoc.options << '--line-numbers' << '--inline-source' 
+  rdoc.options << '--charset' << 'utf-8' 
 end
 

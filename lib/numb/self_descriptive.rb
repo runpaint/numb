@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def self_descriptive?(base=10)
     dig = digits

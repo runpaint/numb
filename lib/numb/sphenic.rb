@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def sphenic?
     (prime_factors.size == 3) &&

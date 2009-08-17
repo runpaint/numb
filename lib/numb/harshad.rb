@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def harshad?
     return false unless self >= 0

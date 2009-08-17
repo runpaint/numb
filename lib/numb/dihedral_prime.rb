@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def dihedral_prime?
     return false unless prime?

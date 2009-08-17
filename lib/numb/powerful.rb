@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def powerful?
     return false unless self > 0

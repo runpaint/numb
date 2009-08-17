@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def automorphic?(n=1)
     (n * self ** 2).to_s.end_with? self.to_s

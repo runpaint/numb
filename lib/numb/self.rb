@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def self?
     # Formula from: Kaprekar, D. R. The Mathematics of New Self-Numbers

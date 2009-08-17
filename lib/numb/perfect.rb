@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def perfect?
     return false if self < 6 or self.odd? or self.to_s !~ /(6|8)$/

@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def triangular?
     return false if self < 0

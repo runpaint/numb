@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def keith?
     return false unless (n = self) > 9

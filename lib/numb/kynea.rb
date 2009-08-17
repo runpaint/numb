@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def kynea?
     return true if self == 7

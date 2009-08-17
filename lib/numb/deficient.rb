@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def deficient?
     return false unless self > 0
