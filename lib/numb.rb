@@ -4,8 +4,8 @@ require 'prime'
 %w{abundant achilles automorphic carol deficient dihedral_prime dudeney
    economical emrip equidigital extravagant factorion frugal happy
    harshad hilbert hyperperfect impolite kaprekar keith kynea mms_pair mobius
-   narcissistic nivenmorphic parasitic perfect perfect_power polite polydivisible
-   powerful practical self self_descriptive semi_perfect semiprime 
+   narcissistic nivenmorphic ordinal parasitic perfect perfect_power polite 
+   polydivisible powerful practical self self_descriptive semi_perfect semiprime 
    smarandache_wellin smith sphenic square square_free triangular trimorphic
    undulating vampire weird
 }.each do |predicate|
