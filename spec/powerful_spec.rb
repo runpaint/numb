@@ -11,7 +11,7 @@ describe Integer, "#powerful?" do
   end
 
   it "returns false for a non-powerful number" do
-    ((1..999).to_a - POWERFUL).sample(10).each do |number|
+    ((1..999).to_a - POWERFUL).shuffle.first(10).each do |number|
       number.should_not be_powerful
     end
   end

@@ -13,7 +13,7 @@ describe Integer, "#hyperperfect?" do
   end
 
   it "returns false for a non-1-hyperperfect (non-perfect) number" do
-    ((1..2000).to_a - PERFECT).sample(5).each do |number|
+    ((1..2000).to_a - PERFECT).shuffle.first(5).each do |number|
       number.should_not be_hyperperfect
     end
   end

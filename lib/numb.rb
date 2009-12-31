@@ -1,8 +1,5 @@
 # coding: utf-8
 
-require 'rubygems'
-require 'backports'
-
 libs = %w{abundant achilles automorphic carol deficient dihedral_prime dudeney
    economical emrip equidigital extravagant factorion frugal happy
    harshad hilbert hyperperfect impolite kaprekar keith kynea mms_pair mobius
@@ -75,6 +72,5 @@ rescue LoadError
 end
 
 libs.each do |predicate|
-  require_relative "numb/#{predicate}"
+  require File.join(File.dirname(__FILE__), "numb/#{predicate}")
 end
-
