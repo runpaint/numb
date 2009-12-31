@@ -11,6 +11,9 @@ begin
     gem.homepage = "http://github.com/runpaint/numb"
     gem.authors = ["Run Paint Run Run"]
     gem.required_ruby_version = '>= 1.9.1'
+    gem.has_rdoc = 'yard'
+    gem.add_development_dependency "yard"
+    gem.add_dependency "gemcutter", ">= 0.1.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -30,23 +33,13 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.rcov = true
 end
 
-
 task :default => :spec
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  if File.exist?('VERSION.yml')
-    config = YAML.load(File.read('VERSION.yml'))
-    version = "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
-  else
-    version = ""
+begin
+  require 'yard'
+  YARD::Rake::YardocTask.new do |t|
+    t.files   = FileList['lib/**/*.rb'].exclude('lib/numb/prime.rb')
   end
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "numb #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-  rdoc.options << '--line-numbers' << '--inline-source' 
-  rdoc.options << '--charset' << 'utf-8' 
+rescue LoadError
+  task :yard => :check_dependencies
 end
-
