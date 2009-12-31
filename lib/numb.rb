@@ -12,28 +12,16 @@ libs = %w{abundant achilles automorphic carol deficient dihedral_prime dudeney
    undulating vampire weird
 }
 
-begin
-  require 'prime'
-rescue LoadError
-  libs.unshift('ruby1.8','prime')
-end
-
-libs.each do |predicate|
-  require_relative "numb/#{predicate}"
-end
-
 class Integer
   
   def number_of_distinct_prime_factors
     prime_factors.uniq.size
   end
-  alias :ω :number_of_distinct_prime_factors
   alias :omega :number_of_distinct_prime_factors
 
   def number_of_prime_factors
     prime_factors.size
   end
-  alias :Ω :number_of_prime_factors
   alias :bigomega :number_of_prime_factors
 
   def prime_factors
@@ -58,7 +46,6 @@ class Integer
   def sum_of_divisors
     positive_divisors.reduce(:+)
   end
-  alias σ :sum_of_divisors
 
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
@@ -79,3 +66,15 @@ class Integer
     (self % n) == 0
   end
 end
+
+begin
+  require 'prime'
+  libs << 'ruby1.9'
+rescue LoadError
+  libs.unshift('ruby1.8','prime')
+end
+
+libs.each do |predicate|
+  require_relative "numb/#{predicate}"
+end
+

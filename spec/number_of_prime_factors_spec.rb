@@ -1,5 +1,5 @@
 # coding: utf-8
-describe Integer, "#Ω" do
+describe Integer, "#number_of_prime_factors" do
   # http://www.research.att.com/~njas/sequences/A001222
   BIGOMEGA = [0,1,1,2,1,2,1,3,2,2,1,3,1,2,2,4,1,3,1,3,2,2,1,4,
               2,2,3,3,1,3,1,5,2,2,2,4,1,2,2,4,1,3,1,3,3,2,1,5,2,
@@ -9,13 +9,13 @@ describe Integer, "#Ω" do
 
   it "returns the number of prime factors (counted with multiplicity) of self" do
     BIGOMEGA.each_with_index do |bigomega, number|
-      (number + 1).Ω.should == bigomega
+      (number + 1).number_of_prime_factors.should == bigomega
     end
   end
 
   it "is >= ω" do
     BIGOMEGA.each_with_index do |bigomega, number|
-      (number + 1).Ω.should >= (number + 1).ω
+      (number + 1).number_of_prime_factors.should >= (number + 1).number_of_distinct_prime_factors
     end
   end
 
@@ -26,7 +26,7 @@ describe Integer, "#Ω" do
      132, 135, 136, 140, 144, 147, 148, 150].each do |number|
       number.prime_factors.size.should >= 2
       number.prime_factors.uniq.should_not == number.prime_factors
-      number.Ω.should == number.prime_factors.size
+      number.number_of_prime_factors.should == number.prime_factors.size
      end
   end
 end

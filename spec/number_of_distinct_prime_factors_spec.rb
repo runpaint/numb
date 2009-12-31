@@ -1,5 +1,5 @@
 # coding: utf-8
-describe Integer, "#ω" do
+describe Integer, "#number_of_distinct_prime_factors" do
   # http://www.research.att.com/~njas/sequences/A001221
   OMEGA = [0,1,1,1,1,2,1,1,1,2,1,2,1,2,2,1,1,2,1,2,2,2,1,2,
            1,2,1,2,1,3,1,1,2,2,2,2,1,2,2,2,1,3,1,2,2,2,1,2,1,
@@ -9,7 +9,7 @@ describe Integer, "#ω" do
 
   it "returns the number of distinct prime factors of self" do
     OMEGA.each_with_index do |omega, number|
-      (number + 1).ω.should == omega
+      (number + 1).number_of_distinct_prime_factors.should == omega
     end
 
     # http://www.research.att.com/~njas/sequences/A046386
@@ -18,7 +18,7 @@ describe Integer, "#ω" do
      1254,1290,1302,1326,1330,1365,1410,1430,1482,1518,
      1554,1590,1610,1722,1770,1785,1794,1806,1830,1870,
      1914,1938,1974].each do |number|
-      number.ω.should == 4
+      number.number_of_distinct_prime_factors.should == 4
      end
   end
 
@@ -29,7 +29,7 @@ describe Integer, "#ω" do
      132, 135, 136, 140, 144, 147, 148, 150].each do |number|
       number.prime_factors.size.should >= 2
       number.prime_factors.uniq.should_not == number.prime_factors
-      number.ω.should == number.prime_factors.uniq.size
+      number.number_of_distinct_prime_factors.should == number.prime_factors.uniq.size
      end
   end
 end
