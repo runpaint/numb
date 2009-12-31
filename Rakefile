@@ -11,8 +11,7 @@ begin
     gem.homepage = "http://github.com/runpaint/numb"
     gem.authors = ["Run Paint Run Run"]
     gem.required_ruby_version = '>= 1.9.1'
-    gem.has_rdoc = 'yard'
-    gem.add_development_dependency "yard"
+    gem.rdoc_options = ['-x', 'lib/numb/ruby1.9.rb']
     gem.add_dependency "gemcutter", ">= 0.1.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -34,12 +33,3 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
 end
 
 task :default => :spec
-
-begin
-  require 'yard'
-  YARD::Rake::YardocTask.new do |t|
-    t.files   = FileList['lib/**/*.rb'].exclude('lib/numb/prime.rb')
-  end
-rescue LoadError
-  task :yard => :check_dependencies
-end
