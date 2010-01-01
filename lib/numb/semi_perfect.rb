@@ -6,7 +6,7 @@ class Integer
     divisors = proper_positive_divisors
     1.upto(divisors.size-1) do |size|
       divisors.combination(size) do |comb|
-        return true if comb.reduce(:+) == self
+        return true if Array(comb).reduce(:+) == self
       end
     end
     false
