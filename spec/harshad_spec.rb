@@ -17,6 +17,10 @@ describe Integer, "#harshad?" do
     end
   end
 
+  it "returns false for 0" do
+    0.should_not be_harshad
+  end
+
   it "returns false for negative numbers" do
     (1..204).each do |number|
       (-number).should_not be_harshad
