@@ -1,12 +1,13 @@
 # coding: utf-8
 
-libs = %w{abundant achilles automorphic carol deficient dihedral_prime dudeney
-   economical emrip equidigital extravagant factorion frugal happy
-   harshad hilbert hyperperfect impolite kaprekar keith kynea lucas_carmichael
-   mms_pair mobius narcissistic nivenmorphic ordinal parasitic perfect 
-   perfect_power polite polydivisible powerful practical pronic self 
-   self_descriptive semi_perfect semiprime smarandache_wellin smith 
-   sphenic square square_free triangular trimorphic undulating vampire weird
+libs = %w{abundant achilles automorphic carol composite deficient 
+          dihedral_prime dudeney economical emrip equidigital 
+          extravagant factorion frugal happy harshad hilbert hyperperfect 
+          impolite kaprekar keith kynea lucas_carmichael mms_pair mobius 
+          narcissistic nivenmorphic ordinal parasitic perfect perfect_power 
+          polite polydivisible powerful practical pronic self self_descriptive
+          semi_perfect semiprime smarandache_wellin smith sphenic square 
+          square_free triangular trimorphic undulating vampire weird
 }
 
 class Integer
