@@ -1,6 +1,6 @@
 # coding: utf-8
 class Integer
-   def semi_perfect?
+   def semiperfect?
      return false if deficient?
      return true if perfect?
      possibles, divisors = { 0 => true}, proper_positive_divisors
@@ -16,5 +16,5 @@ class Integer
      end
      false
    end
-  alias :pseudoperfect? :semi_perfect?
+  alias :pseudoperfect? :semiperfect?
 end
