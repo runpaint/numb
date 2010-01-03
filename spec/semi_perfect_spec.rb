@@ -21,4 +21,11 @@ describe Integer, "#semi_perfect?" do
       (-number).should_not be_semi_perfect
     end
   end
+
+  it "handles large input quickly and without raising a RangeError" do
+    require 'timeout'
+    lambda do 
+      Timeout.timeout(5) { 19305.semi_perfect? }
+    end.should_not raise_error
+  end
 end

@@ -1,15 +1,20 @@
 # coding: utf-8
 class Integer
-  def semi_perfect?
-    return false if deficient?
-    return true if perfect?
-    divisors = proper_positive_divisors
-    1.upto(divisors.size-1) do |size|
-      divisors.combination(size) do |comb|
-        return true if Array(comb).reduce(:+) == self
-      end
-    end
-    false
-  end
+   def semi_perfect?
+     return false if deficient?
+     return true if perfect?
+     possibles, divisors = { 0 => true}, proper_positive_divisors
+     proper_sod = (sod = sum_of_divisors || 0) - self
+     divisors.reverse.each do |divisor|
+       possibles.keys.each do |possible|
+         possibles.delete(possible) if possible + sod < self 
+         x = possible + divisor
+         return true if x == self or x == proper_sod 
+         possibles[x] = true if x < self        
+       end
+       sod -= divisor
+     end
+     false
+   end
   alias :pseudo_perfect? :semi_perfect?
 end
