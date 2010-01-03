@@ -1,6 +1,6 @@
 # coding: utf-8
 
-libs = %w{abundant achilles automorphic carol composite deficient 
+libs = %w{abundant achilles automorphic balanced_prime carol composite deficient 
           dihedral_prime dudeney economical emrip equidigital 
           extravagant factorion frugal happy harshad hilbert hyperperfect 
           impolite kaprekar keith kynea lucas lucas_carmichael mms_pair mobius 
