@@ -16,5 +16,5 @@ class Integer
      end
      false
    end
-  alias :pseudo_perfect? :semi_perfect?
+  alias :pseudoperfect? :semi_perfect?
 end

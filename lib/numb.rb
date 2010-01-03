@@ -5,10 +5,10 @@ libs = %w{abundant achilles automorphic balanced_prime carol composite deficient
           extravagant factorion frugal happy harshad hilbert hyperperfect 
           impolite kaprekar keith kynea lucas lucas_carmichael mms_pair mobius 
           narcissistic nivenmorphic ordinal parasitic perfect perfect_power 
-          polite polydivisible powerful practical pronic self self_descriptive
-          semi_perfect semiprime smarandache_wellin smith sophie_germain_prime 
-          sphenic square square_free triangular trimorphic undulating vampire 
-          weird
+          polite polydivisible powerful practical primitive_pseudoperfect
+          pronic self self_descriptive semi_perfect semiprime 
+          smarandache_wellin smith sophie_germain_prime sphenic square 
+          square_free triangular trimorphic undulating vampire weird
 }
 
 class Integer
