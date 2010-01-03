@@ -10,6 +10,13 @@ describe Integer, "#semi_perfect?" do
     end
   end
 
+  it "returns true if the number is a multiple of a known semi-perfect" do
+    (SEMI_PERFECT.combination(2).map{|_| _.reduce(:*)}.uniq - SEMI_PERFECT).
+      shuffle.first(15).each do |number|
+      number.should be_semi_perfect
+    end
+  end
+
   it "returns false if the number is not semi-perfect" do
     ((1..263).to_a - SEMI_PERFECT).each do |number|
       number.should_not be_semi_perfect
