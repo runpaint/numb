@@ -1,8 +1,6 @@
 # coding: utf-8
 class Integer
   def triangular?
-    return false if self < 0
-    root = Math.sqrt(8 * self + 1)
-    root == root.floor
+    n_gonal?(3)
   end
 end
