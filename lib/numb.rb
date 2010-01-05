@@ -1,9 +1,9 @@
 # coding: utf-8
 
-libs = %w{abundant achilles automorphic balanced_prime carol composite deficient 
-          cube dihedral_prime dudeney economical emrip equidigital 
-          extravagant factorion frugal happy harshad heptagonal hexagonal 
-          hilbert hyperperfect impolite kaprekar keith kynea lucas 
+libs = %w{abundant achilles automorphic balanced_prime carol composite 
+          decagonal deficient cube dihedral_prime dudeney economical emrip
+          equidigital extravagant factorion frugal happy harshad heptagonal
+          hexagonal hilbert hyperperfect impolite kaprekar keith kynea lucas 
           lucas_carmichael mms_pair mobius narcissistic nivenmorphic 
           n_gonal octagonal ordinal parasitic pentagonal perfect 
           perfect_power polite polydivisible powerful practical 
