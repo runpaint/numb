@@ -4,8 +4,8 @@ libs = %w{abundant achilles automorphic balanced_prime carol composite cube
           decagonal deficient dodecagonal dihedral_prime dudeney economical 
           emrip equidigital extravagant factorion frugal happy harshad 
           heptagonal hexagonal hilbert hyperperfect impolite kaprekar keith
-          kynea lucas lucas_carmichael mms_pair mobius narcissistic nivenmorphic 
-          n_gonal octagonal ordinal parasitic pentagonal perfect 
+          kynea lucas lucas_carmichael mms_pair mobius myriagonal narcissistic
+          nivenmorphic n_gonal octagonal ordinal parasitic pentagonal perfect 
           perfect_power polite polydivisible powerful practical 
           primitive_pseudoperfect pronic rhonda self self_descriptive 
           semiperfect semiprime smarandache_wellin smith 
