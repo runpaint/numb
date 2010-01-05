@@ -10,6 +10,8 @@ class Integer
   #     98.dudeney?    #=> false
   #
   def dudeney?
-    Math.cbrt(self) == self.digits.reduce(:+)
+    # The ugly hack below is seemingly needed for 1.8 compatibility. I ave
+    # yet to understand why.
+    Math.cbrt(self).to_s.sub(/\.0$/,'') == self.digits.reduce(:+).to_s
   end
 end

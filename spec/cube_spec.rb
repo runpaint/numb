@@ -7,7 +7,7 @@ describe Integer, "#cube?" do
           54872,59319,64000]
 
   it "returns true for perfect cubes" do
-    CUBES.shuffle.first(10).each{|n| n.should be_cube}
+    CUBES.each{|n| n.should be_cube}
   end
 
   it "returns true for negative perfect cubes" do
