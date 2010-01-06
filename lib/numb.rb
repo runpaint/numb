@@ -10,7 +10,8 @@ libs = %w{abundant achilles automorphic balanced_prime carmichael carol
           polydivisible powerful practical primitive_pseudoperfect pronic 
           repunit rhonda self self_descriptive semiperfect semiprime 
           smarandache_wellin smith sophie_germain_prime sphenic square 
-          square_free triangular trimorphic undulating vampire weird
+          square_free superperfect triangular trimorphic undulating vampire 
+          weird
 }
 
 class Integer
