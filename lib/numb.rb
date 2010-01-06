@@ -1,7 +1,7 @@
 # coding: utf-8
 
-libs = %w{abundant achilles automorphic balanced_prime carmichael carol 
-          composite cube decagonal deficient dodecagonal dihedral_prime 
+libs = %w{abundant achilles amicable automorphic balanced_prime carmichael
+          carol composite cube decagonal deficient dodecagonal dihedral_prime 
           dudeney economical emrip equidigital extravagant factorion 
           fibonacci frugal happy harshad heptagonal hexagonal hilbert 
           hyperperfect impolite kaprekar keith kynea lucas lucas_carmichael 
