@@ -8,7 +8,7 @@ libs = %w{abundant achilles automorphic balanced_prime carmichael carol
           mms_pair mobius myriagonal narcissistic nivenmorphic n_gonal 
           octagonal ordinal parasitic pentagonal perfect perfect_power polite 
           polydivisible powerful practical primitive_pseudoperfect pronic 
-          rhonda self self_descriptive semiperfect semiprime 
+          repunit rhonda self self_descriptive semiperfect semiprime 
           smarandache_wellin smith sophie_germain_prime sphenic square 
           square_free triangular trimorphic undulating vampire weird
 }
