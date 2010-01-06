@@ -5,10 +5,10 @@ libs = %w{abundant achilles automorphic balanced_prime carmichael carol
           dudeney economical emrip equidigital extravagant factorion 
           fibonacci frugal happy harshad heptagonal hexagonal hilbert 
           hyperperfect impolite kaprekar keith kynea lucas lucas_carmichael 
-          mms_pair mobius myriagonal narcissistic nivenmorphic n_gonal 
-          octagonal ordinal parasitic pentagonal perfect perfect_power polite 
-          polydivisible powerful practical primitive_pseudoperfect pronic 
-          repunit rhonda self self_descriptive semiperfect semiprime 
+          mersenne_prime mms_pair mobius myriagonal narcissistic nivenmorphic 
+          n_gonal octagonal ordinal parasitic pentagonal perfect perfect_power
+          polite polydivisible powerful practical primitive_pseudoperfect 
+          pronic repunit rhonda self self_descriptive semiperfect semiprime 
           smarandache_wellin smith sophie_germain_prime sphenic square 
           square_free superperfect triangular trimorphic undulating vampire 
           weird
