@@ -1,18 +1,18 @@
 # coding: utf-8
 
 libs = %w{abundancy abundant achilles almost_perfect amicable aspiring 
-          automorphic balanced_prime carmichael carol composite cube decagonal 
-          deficient dodecagonal dihedral_prime dudeney economical emrip 
-          equidigital extravagant factorion fibonacci friendly frugal 
-          happy harshad heptagonal hexagonal hilbert hyperperfect impolite 
-          kaprekar keith k_perfect kynea lucas lucas_carmichael 
-          mersenne_prime mms_pair mobius myriagonal narcissistic nivenmorphic 
-          n_gonal octagonal ordinal parasitic pentagonal perfect perfect_power 
-          polite polydivisible powerful practical primitive_pseudoperfect 
-          pronic repunit rhonda self self_descriptive semiperfect 
-          semiprime smarandache_wellin smith sophie_germain_prime sphenic 
-          square square_free superperfect triangular trimorphic undulating 
-          vampire weird
+          automorphic balanced_prime carmichael carol composite coprime 
+          cube decagonal deficient dodecagonal dihedral_prime dudeney 
+          economical emrip equidigital extravagant factorion fibonacci 
+          friendly frugal happy harshad heptagonal hexagonal hilbert 
+          hyperperfect impolite kaprekar keith k_perfect kynea lucas 
+          lucas_carmichael mersenne_prime mms_pair mobius myriagonal 
+          narcissistic nivenmorphic n_gonal octagonal ordinal parasitic 
+          pentagonal perfect perfect_power polite polydivisible powerful 
+          practical primitive_pseudoperfect pronic repunit rhonda self 
+          self_descriptive semiperfect semiprime smarandache_wellin smith 
+          sophie_germain_prime sphenic square square_free superperfect 
+          triangular trimorphic undulating vampire weird
 }
 
 class Integer
