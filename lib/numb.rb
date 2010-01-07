@@ -2,11 +2,11 @@
 
 libs = %w{abundancy abundant achilles amicable aspiring automorphic 
           balanced_prime carmichael carol composite cube decagonal 
-          deficient dodecagonal dihedral_prime  dudeney economical emrip 
-          equidigital extravagant factorion fibonacci frugal happy harshad 
-          heptagonal hexagonal hilbert hyperperfect impolite kaprekar keith 
-          kynea lucas lucas_carmichael mersenne_prime mms_pair mobius 
-          myriagonal narcissistic nivenmorphic n_gonal octagonal ordinal 
+          deficient dodecagonal dihedral_prime dudeney economical emrip 
+          equidigital extravagant factorion fibonacci friendly frugal 
+          happy harshad heptagonal hexagonal hilbert hyperperfect impolite 
+          kaprekar keith kynea lucas lucas_carmichael mersenne_prime mms_pair 
+          mobius myriagonal narcissistic nivenmorphic n_gonal octagonal ordinal 
           parasitic pentagonal perfect perfect_power polite polydivisible 
           powerful practical primitive_pseudoperfect pronic repunit rhonda 
           self self_descriptive semiperfect semiprime smarandache_wellin smith
