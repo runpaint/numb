@@ -6,8 +6,8 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           economical emrip equidigital extravagant factorion fibonacci 
           friendly frugal happy harshad heptagonal hexagonal highly_composite 
           highly_abundant hilbert hyperperfect impolite kaprekar keith 
-          k_perfect kynea lucas lucas_carmichael mersenne_prime mms_pair 
-          mobius myriagonal narcissistic nivenmorphic n_gonal octagonal 
+          k_perfect kynea lucas lucas_carmichael mersenne_prime minimal 
+          mms_pair mobius myriagonal narcissistic nivenmorphic n_gonal octagonal
           ordinal ore parasitic pentagonal perfect perfect_power polite 
           polydivisible powerful practical primitive_pseudoperfect primorial 
           pronic proth repunit rhonda self self_descriptive semiperfect 
