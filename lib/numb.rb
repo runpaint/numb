@@ -8,7 +8,7 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           highly_abundant hilbert hyperperfect impolite kaprekar keith 
           k_perfect kynea lucas lucas_carmichael mersenne_prime mms_pair 
           mobius myriagonal narcissistic nivenmorphic n_gonal octagonal 
-          ordinal parasitic pentagonal perfect perfect_power polite 
+          ordinal ore parasitic pentagonal perfect perfect_power polite 
           polydivisible powerful practical primitive_pseudoperfect primorial 
           pronic repunit rhonda self self_descriptive semiperfect semiprime 
           smarandache_wellin smith sophie_germain_prime sphenic square 

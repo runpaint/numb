@@ -12,7 +12,7 @@ describe Integer, "#carmichael?" do
     end
   end
 
-  ((1..CARMICHAEL.last).to_a - CARMICHAEL).shuffle.first(10).each do |n| 
+  ((1..CARMICHAEL.last).first(20) - CARMICHAEL).each do |n| 
     it "returns false for non-Carmichael number #{n}" do
       n.should_not be_carmichael
     end
