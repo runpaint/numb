@@ -12,7 +12,7 @@ describe Integer, "#superabundant?" do
     end
   end
 
-  ((1..SUPERABUNDANT.last).to_a - SUPERABUNDANT).first(20).each do |n|
+  ((1..SUPERABUNDANT.last).first(20) - SUPERABUNDANT).each do |n|
     it "should return false for non-superabundant number #{n}" do
       n.should_not be_superabundant
     end

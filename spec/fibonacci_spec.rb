@@ -12,7 +12,7 @@ describe Integer, "#fibonacci?" do
     end
   end
 
-  ((0..FIBONACCI.last).to_a - FIBONACCI).shuffle.first(10).each do |n|
+  ((0..FIBONACCI.last).first(10) - FIBONACCI).each do |n|
     it "returns false for non-Fibonacci number #{n}" do
       n.should_not be_fibonacci
     end
