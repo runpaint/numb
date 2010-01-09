@@ -12,8 +12,9 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           polydivisible powerful practical primitive_pseudoperfect primorial 
           pronic proth repunit rhonda self self_descriptive semiperfect 
           semiprime smarandache_wellin smith sophie_germain_prime sphenic square 
-          square_free sublime superabundant superperfect triangular trimorphic 
-          undulating unitary_perfect unitary_divisor untouchable vampire weird
+          square_free sublime sum_of_squares superabundant superperfect 
+          triangular trimorphic undulating unitary_perfect unitary_divisor 
+          untouchable vampire weird
 }
 
 class Integer
