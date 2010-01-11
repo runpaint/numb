@@ -1,10 +1,4 @@
 class Integer
-  def next_prime
-    p = succ
-    p += 1 until p.prime?
-    p
-  end
-  
   # The algorithm below is based heavily on that described by 
   # Peter Shorn at http://www.schorn.ch/howto.html
 
