@@ -6,10 +6,11 @@ class Integer
   # Returns the number of divisors of self
   def τ 
     n = self
-    (1..Math.sqrt(n)).map do |i| 
-      n.quo(i).to_i - (n - 1).quo(i).to_i 
-    end.reduce(:+) * 2
+    @nod ||= (1..Math.sqrt(n)).
+      map {|i| n.quo(i).to_i - (n - 1).quo(i).to_i }.
+      reduce(:+) * 2
   end
+
 
   alias :number_of_divisors :τ 
   alias :d :τ 

@@ -7,7 +7,7 @@ class Integer
   def π
     x = self
     return 0 if x == 1
-    ([2] + (3..x).select(&:odd?)).map do |j|
+    @prime_count ||= ([2] + (3..x).select(&:odd?)).map do |j|
       1 + ( ((2 - j.τ)/j).floor ).floor
     end.reduce(:+)
   end
