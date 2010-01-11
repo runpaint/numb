@@ -1,17 +1,15 @@
 # coding: utf-8
 class Integer
-  def factorial
-    (1..self).reduce(:*)
-  end
-  
-def π
-  return 0 if self < 2
-  case self
-    when 2 then 1
-    when 3 then 2
-    else
-    -1 + (3..self).map{|j| ((j - 2).factorial - j * ((j - 2).factorial/j).floor).floor}.reduce(:+)
-    end
+  # Algorithm derived from Formulas for pi(n) and the n-th prime by Sebastian
+  # Martin Ruiz and Jonathan Sondow [arXiv:math/0210312v2 [math.NT]]
+
+  # Returns the number of primes equal to or less than self
+  def π
+    x = self
+    return 0 if x == 1
+    ([2] + (3..x).select(&:odd?)).map do |j|
+      1 + ( ((2 - j.τ)/j).floor ).floor
+    end.reduce(:+)
   end
   alias :prime_pi :π
   alias :prime_count :π

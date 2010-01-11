@@ -7,14 +7,14 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           friendly frugal happy harshad heptagonal hexagonal highly_composite 
           highly_abundant hilbert hyperperfect idoneal impolite kaprekar keith 
           k_perfect kynea lucas lucas_carmichael mersenne_prime minimal 
-          mms_pair mobius myriagonal narcissistic nivenmorphic n_gonal octagonal
-          ordinal ore parasitic pentagonal perfect perfect_power polite 
-          polydivisible powerful practical prime_count primitive_pseudoperfect 
-          primorial pronic proth repunit rhonda self self_descriptive 
-          semiperfect semiprime smarandache_wellin smith sophie_germain_prime
-          sphenic square square_free sublime sum_of_squares superabundant 
-          superperfect triangular trimorphic undulating unitary_perfect 
-          unitary_divisor untouchable vampire weird
+          mms_pair mobius myriagonal narcissistic nivenmorphic n_gonal 
+          number_of_divisors octagonal ordinal ore parasitic pentagonal 
+          perfect perfect_power polite polydivisible powerful practical 
+          prime_count primitive_pseudoperfect primorial pronic proth repunit 
+          rhonda self self_descriptive semiperfect semiprime smarandache_wellin
+          smith sophie_germain_prime sphenic square square_free sublime 
+          sum_of_squares superabundant superperfect triangular trimorphic 
+          undulating unitary_perfect unitary_divisor untouchable vampire weird
 }
 
 class Integer
