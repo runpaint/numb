@@ -11,7 +11,7 @@ class Integer
     @nod = (1..square_root.floor).
       map {|i|  n.quo(i).to_i - (n - 1).quo(i).to_i }.
       reduce(:+) * 2
-    @nod -= 1 if square_root == square_root.to_i
+    @nod -= 1 if square_root.integer?
     @nod
   end
 
