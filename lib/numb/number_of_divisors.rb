@@ -6,9 +6,13 @@ class Integer
   # Returns the number of divisors of self
   def τ 
     n = self
-    @nod ||= (1..Math.sqrt(n)).
-      map {|i| n.quo(i).to_i - (n - 1).quo(i).to_i }.
+    return @nod if defined?(@nod)
+    square_root = Math.sqrt(n)
+    @nod = (1..square_root.floor).
+      map {|i|  n.quo(i).to_i - (n - 1).quo(i).to_i }.
       reduce(:+) * 2
+    @nod -= 1 if square_root == square_root.to_i
+    @nod
   end
 
 
