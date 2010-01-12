@@ -2,8 +2,8 @@
 
 libs = %w{abundancy abundant achilles almost_perfect amicable aspiring 
           automorphic balanced_prime carmichael carol composite coprime 
-          cototient cube decagonal deficient dodecagonal dihedral_prime dudeney 
-          economical emrip equidigital extravagant factorion fibonacci 
+          core cototient cube decagonal deficient dodecagonal dihedral_prime
+          dudeney economical emrip equidigital extravagant factorion fibonacci 
           friendly frugal happy harshad heptagonal hexagonal highly_composite 
           highly_abundant hilbert hyperperfect idoneal impolite integer_p 
           interprime jacobsthal_lucas kaprekar keith k_perfect kynea leonardo
