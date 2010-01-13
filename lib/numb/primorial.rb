@@ -9,9 +9,9 @@ class Integer
   def primorial_product?
     return true if primorial?
     return false if prime?
-    positive_divisors.each_slice(2).
-                      reject{|pair| pair == [1, self]}.
-                      any?{|pair| pair.all?(&:primorial_product?)} 
+    divisors.each_slice(2).
+             reject{|pair| pair == [1, self]}.
+             any?{|pair| pair.all?(&:primorial_product?)} 
   end
 
   def primorial

@@ -38,21 +38,21 @@ class Integer
   end
 
   def politeness
-    positive_divisors.select{|d| d > 1}.select{|d| d.odd?}.size
+    divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
 
   def proper_positive_divisors
-    positive_divisors.reject {|d| d == self }
+    divisors.reject {|d| d == self }
   end
 
-  def positive_divisors
+  def divisors
     return [] unless self >= 0
     (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                              map {|n| [n, self/n]}.flatten.uniq
+                               map {|n| [n, self/n]}.flatten.uniq
   end
 
   def sum_of_divisors
-    positive_divisors.reduce(:+)
+    divisors.reduce(:+)
   end
 
   def digital_root

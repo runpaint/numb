@@ -1,8 +1,8 @@
 class Integer
   def minimal?
-    div_n = positive_divisors.size
+    div_n = number_of_divisors
     (self-1).downto(1).all? do |n|
-      n.positive_divisors.size != div_n
+      n.number_of_divisors != div_n
     end
   end
 end
