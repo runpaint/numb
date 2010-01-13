@@ -1,7 +1,7 @@
 class Integer
   def aliquot_sequence
     sequence = [self]
-    100.times do |limit|
+    25.times do |limit|
       raise RangeError if limit == 99
       divisors = sequence.last.proper_divisors
       break if divisors.empty?
