@@ -48,10 +48,11 @@ class Integer
   end
 
   def divisors
+    return @divisors if defined?(@divisors)
     return [] unless self >= 0
     return [1, self] if prime?
-    (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                               map {|n| [n, self/n]}.flatten.uniq
+    @divisors = (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
+                                           map {|n| [n, self/n]}.flatten.uniq
   end
 
   def sum_of_divisors
