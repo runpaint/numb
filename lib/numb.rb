@@ -70,7 +70,7 @@ class Integer
     self.to_s.split(//).map{|d| d.to_i}
   end
 
-  def factor?(n)
+  def divides?(n)
     return false if n == 0
     (self % n) == 0
   end

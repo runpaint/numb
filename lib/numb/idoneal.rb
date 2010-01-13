@@ -8,7 +8,7 @@ class Integer
     # Theorem 3 (Euler) 
     # 1. If n is an idoneal number which is a square, then n =  1, 4, 9, 16, or 25.
     return false if n.square? and ![1, 4, 9, 16, 25].include?(n)
-    if n.factor?(4)
+    if n.divides?(4)
       n_over_4 = n/4
 
       # Theorem 12 (Grube)
@@ -17,7 +17,7 @@ class Integer
       
       # Theorem 12 (Grube)
       # If n is idoneal and 16|n, then n = 16, 48, 112, 240.
-      if n.factor?(16)
+      if n.divides?(16)
         return [16, 48, 112, 240].include?(n)
       end
 
@@ -35,11 +35,11 @@ class Integer
 
     # Theorem 12 (Grube)
     # (a) If n is idoneal and 9|n, then n = 9, 18, 45, 72.
-    return [9, 18, 45, 72].include?(n) if n.factor?(9)
+    return [9, 18, 45, 72].include?(n) if n.divides?(9)
     
     # Theorem 12 (Grube)
     # (b) If n is idoneal and 25|n, then n = 25.
-    return n == 25 if n.factor?(25)
+    return n == 25 if n.divides?(25)
     
     # Corollary 8 
     # If n ≡ 3 (mod 4) is idoneal, then n = 3, 7 or 15.
