@@ -43,41 +43,41 @@ describe Integer, "#perfect?" do
   end
 end
 
-describe Integer, "#proper_positive_divisors" do
+describe Integer, "#proper_divisors" do
   it "returns an Array" do
-    6.proper_positive_divisors.should be_an_instance_of(Array)
+    6.proper_divisors.should be_an_instance_of(Array)
   end
 
   it "returns integers that divide into self with no remainder" do
-    6.proper_positive_divisors.should include(2, 3)
+    6.proper_divisors.should include(2, 3)
   end
 
   it "doesn't return integers that divide into self with a remainder" do
-    6.proper_positive_divisors.should_not include(4, 5)
+    6.proper_divisors.should_not include(4, 5)
   end
 
   it "doesn't return itself as a divisor" do
-    9.proper_positive_divisors.should_not include(9)
+    9.proper_divisors.should_not include(9)
   end
 
   it "returns all of the proper divisors of self" do
-    33.proper_positive_divisors.sort.should == [1, 3, 11]
+    33.proper_divisors.sort.should == [1, 3, 11]
   end
 
   it "returns [] for 1" do
-    1.proper_positive_divisors.should == []
+    1.proper_divisors.should == []
   end
 
   it "returns [] for 0" do
-    0.proper_positive_divisors.should == []
+    0.proper_divisors.should == []
   end
 
   it "returns [] for -1" do
-    -1.proper_positive_divisors.should == []
+    -1.proper_divisors.should == []
   end
 
   it "returns [] when self is negative" do
-    -32.proper_positive_divisors.should == []
+    -32.proper_divisors.should == []
   end
 end
 

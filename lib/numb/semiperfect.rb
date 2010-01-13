@@ -5,7 +5,7 @@ class Integer
      return true if perfect?
      possibles = { 0 => true}
      proper_sod = (sod = sum_of_divisors || 0) - self
-     proper_positive_divisors.reverse.each do |divisor|
+     proper_divisors.reverse.each do |divisor|
        possibles.keys.each do |possible|
          possibles.delete(possible) if possible + sod < self 
          x = possible + divisor

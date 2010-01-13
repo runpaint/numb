@@ -9,7 +9,7 @@ describe Integer, "#unitary_divisor?" do
   UNITARY_DIVISORS.each_with_index do |sum, i|
     i = i.succ
     it "should return true for the unitary divisors of #{i}" do
-      got = (i.proper_positive_divisors.
+      got = (i.proper_divisors.
               select{|d| i.unitary_divisor?(d)}.
               reduce(:+)) || 0
       sum.should == got

@@ -41,7 +41,7 @@ class Integer
     divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
 
-  def proper_positive_divisors
+  def proper_divisors
     divisors.reject {|d| d == self }
   end
 

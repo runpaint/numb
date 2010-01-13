@@ -3,7 +3,7 @@ class Integer
     sequence = [self]
     100.times do |limit|
       raise RangeError if limit == 99
-      divisors = sequence.last.proper_positive_divisors
+      divisors = sequence.last.proper_divisors
       break if divisors.empty?
       sequence << divisors.reduce(:+)
       break if sequence[0..-2].include?(sequence.last)
