@@ -1,3 +1,5 @@
+# coding: utf-8
+
 describe Integer, "#square_free?" do
   # http://www.research.att.com/~njas/sequences/A005117
   SQUARE_FREE = [1,2,3,5,6,7,10,11,13,14,15,17,19,21,22,23,26,29,
