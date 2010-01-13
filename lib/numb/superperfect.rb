@@ -1,5 +1,6 @@
+# coding: utf-8
 class Integer
   def superperfect?
-    sum_of_divisors.sum_of_divisors == 2 * self
+    σ.σ == 2 * self
   end
 end

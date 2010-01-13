@@ -1,3 +1,4 @@
+# coding: utf-8
 class Integer
   def untouchable?
     # * The first untouchable integer is 2
@@ -7,7 +8,7 @@ class Integer
     #   therefore, no untouchable number is one more than a prime.
     return false if self < 2 or perfect? or (self - 1).prime?
     (1..((self - 1)**2)).none? do |m|
-      m.sum_of_divisors - m == self
+      m.σ - m == self
     end
   end
 end

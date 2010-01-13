@@ -21,7 +21,6 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
 }
 
 class Integer
-  
   def number_of_distinct_prime_factors
     prime_factors.uniq.size
   end
@@ -56,8 +55,9 @@ class Integer
   end
 
   def sum_of_divisors
-    divisors.reduce(:+)
+    @sod ||= divisors.reduce(:+)
   end
+  alias :σ :sum_of_divisors
 
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
