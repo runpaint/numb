@@ -8,4 +8,7 @@ class Integer
       when (not square_free?)         then 0
     end
   end
+
+  alias :möbius :mobius
+  alias :μ :mobius
 end

@@ -26,11 +26,13 @@ class Integer
     prime_factors.uniq.size
   end
   alias :omega :number_of_distinct_prime_factors
+  alias :ω :number_of_distinct_prime_factors
 
   def number_of_prime_factors
     prime_factors.size
   end
   alias :bigomega :number_of_prime_factors
+  alias :Ω :number_of_prime_factors
 
   def prime_factors
     return [] if zero?
@@ -76,12 +78,7 @@ class Integer
   end
 end
 
-begin
-  require 'prime'
-  libs << 'ruby1.9'
-rescue LoadError
-  libs.unshift('ruby1.8','prime')
-end
+require 'prime'
 
 libs.each do |predicate|
   require File.join(File.dirname(__FILE__), "numb/#{predicate}")
