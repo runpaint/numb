@@ -11,7 +11,7 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           mersenne_prime minimal mms_pair mobius myriagonal narcissistic 
           next_prev_prime n_gonal nivenmorphic noncototient nth_prime 
           number_of_divisors octagonal ordinal ore parasitic pentagonal 
-          perfect perfect_power polite polydivisible powerful practical 
+          perfect perfect_power polite polydivisible poulet powerful practical 
           prime_count prime_signature primitive_pseudoperfect primorial pronic 
           proth refactorable repunit rhonda rough self self_descriptive 
           semiperfect semiprime smarandache_wellin smith smooth 
@@ -75,8 +75,7 @@ class Integer
   end
 
   def divides?(n)
-    return false if n == 0
-    (self % n) == 0
+    not n.zero? and (self % n).zero?
   end
 end
 
