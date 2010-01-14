@@ -1,5 +1,5 @@
 class Integer
   def poulet?
-    composite? and (2**self - 2).divides?(self)
+    fermat_pseudoprime? 2
   end
 end
