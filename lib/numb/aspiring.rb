@@ -1,17 +1,19 @@
 class Integer
   def aliquot_sequence
     sequence = [self]
-    25.times do |limit|
-      raise RangeError if limit == 99
+    max_iterations = Math.sqrt(self).floor
+    max_iterations.times do |limit|
       divisors = sequence.last.proper_divisors
       break if divisors.empty?
       sequence << divisors.reduce(:+)
       break if sequence[0..-2].include?(sequence.last)
+      return sequence << (1/0.0) if limit.succ == max_iterations
     end
     sequence
   end
 
   def aspiring?
-    not perfect? and aliquot_sequence.last.perfect?
+    return false if perfect? 
+    (last = aliquot_sequence.last).to_f.finite? ? last.perfect? : false
   end
 end
