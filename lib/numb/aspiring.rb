@@ -12,6 +12,6 @@ class Integer
   end
 
   def aspiring?
-    aliquot_sequence.last.perfect?
+    not perfect? and aliquot_sequence.last.perfect?
   end
 end
