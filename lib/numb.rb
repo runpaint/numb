@@ -1,13 +1,14 @@
 # coding: utf-8
 
 libs = %w{abundancy abundant achilles almost_perfect amicable aspiring 
-          automorphic balanced_prime carmichael carol centered_triangular
-          congruum composite coprime core cototient cube d decagonal 
-          deficient dodecagonal dihedral_prime dudeney economical emrip 
-          equidigital extravagant factorion fermat_pseudoprime fibonacci
-          friendly frugal happy harshad heptagonal hexagonal highly_composite
-          highly_abundant hilbert hyperperfect idoneal impolite integer_p 
-          interprime jacobsthal_lucas kaprekar keith knodel k_perfect kynea 
+          automorphic balanced_prime carmichael carol centered_n_gonal 
+          centered_triangular congruum composite coprime core cototient 
+          cube d decagonal deficient dodecagonal dihedral_prime dudeney 
+          economical emrip equidigital extravagant factorion 
+          fermat_pseudoprime fibonacci friendly frugal happy harshad 
+          heptagonal hexagonal highly_composite highly_abundant hilbert 
+          hyperperfect idoneal impolite integer_p interprime 
+          jacobsthal_lucas kaprekar keith knodel k_perfect kynea 
           leonardo leyland lucas lucas_carmichael mersenne_prime minimal 
           mms_pair mobius myriagonal narcissistic next_prev_prime n_gonal 
           nivenmorphic noncototient nth_prime number_of_divisors octagonal 
