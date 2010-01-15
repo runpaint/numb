@@ -4,7 +4,7 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           automorphic balanced_prime brown carmichael carol centered_n_gonal 
           centered_triangular congruum composite coprime core cototient 
           cube d decagonal deficient dodecagonal dihedral_prime dudeney 
-          economical emrip equidigital extravagant factorion 
+          economical emrip equidigital extravagant factorial factorion 
           fermat_pseudoprime fibonacci friendly frugal happy harshad 
           heptagonal hexagonal highly_composite highly_abundant hilbert 
           hyperperfect idoneal impolite integer_p interprime 
