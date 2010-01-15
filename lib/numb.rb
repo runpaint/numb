@@ -14,12 +14,13 @@ libs = %w{abundancy abundant achilles almost_perfect amicable aspiring
           nivenmorphic noncototient nth_prime number_of_divisors octagonal 
           ordinal ore parasitic pentagonal perfect perfect_power polite 
           polydivisible poulet powerful practical prime_count prime_signature 
-          primitive_pseudoperfect primorial pronic proth refactorable repunit 
-          rhonda rough self self_descriptive semiperfect semiprime 
-          smarandache_wellin smith smooth sophie_germain_prime sphenic square
-          square_free sublime sum_of_squares superabundant superperfect 
-          totient triangular trimorphic undulating unitary_perfect 
-          unitary_divisor untouchable vampire weird zeisel
+          primitive_pseudoperfect primorial pronic proth quarticfree 
+          refactorable repunit rhonda rough self self_descriptive 
+          semiperfect semiprime smarandache_wellin smith smooth 
+          sophie_germain_prime sphenic square square_free sublime 
+          sum_of_squares superabundant superperfect totient triangular 
+          trimorphic undulating unitary_perfect unitary_divisor untouchable
+          vampire weird zeisel
 }
 
 class Integer
