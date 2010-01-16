@@ -1,9 +1,9 @@
 # coding: utf-8
 
 libs = %w{abundancy abundant achilles almost_perfect amicable aspiring 
-          automorphic balanced_prime binomial biquadratic breeder brown
-          carmichael carol centered_n_gonal centered_triangular congruum 
-          composite coprime core cototient cube d decagonal deficient 
+          augmented_amicable automorphic balanced_prime binomial biquadratic
+          breeder brown carmichael carol centered_n_gonal centered_triangular
+          congruum composite coprime core cototient cube d decagonal deficient 
           dodecagonal dihedral_prime dudeney economical emrip equidigital 
           extravagant factorial factorion fermat_pseudoprime fibonacci 
           friendly frugal happy harshad heptagonal hexagonal highly_composite
