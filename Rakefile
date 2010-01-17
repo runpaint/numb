@@ -10,9 +10,10 @@ begin
     gem.email = "runrun@runpaint.org"
     gem.homepage = "http://github.com/runpaint/numb"
     gem.authors = ["Run Paint Run Run"]
-    gem.rdoc_options = ['-x']
     gem.add_dependency "gemcutter", ">= 0.1.0"
-    gem.required_ruby_version = '1.9'
+    gem.required_ruby_version = '>= 1.9'
+    gem.has_rdoc = 'yard'
+    gem.rdoc_options = []
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -30,6 +31,15 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.libs << 'lib' << 'spec'
   spec.pattern = 'spec/**/*_spec.rb'
   spec.rcov = true
+end
+
+begin
+  require 'yard'
+  YARD::Rake::YardocTask.new
+rescue LoadError
+  task :yardoc do
+    abort "YARD is not available. In order to run yardoc, you must: sudo gem install yard"
+  end
 end
 
 task :default => :spec
