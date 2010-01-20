@@ -1,8 +1,7 @@
 class Integer
-  def aliquot_sequence
+  def aliquot_sequence(max_iterations=(self > 100 ? 10 : Math.sqrt(self)))
     sequence = [self]
-    max_iterations = Math.sqrt(self).floor
-    max_iterations.times do |limit|
+    max_iterations.floor.times do |limit|
       divisors = sequence.last.proper_divisors
       break if divisors.empty?
       sequence << divisors.reduce(:+)
@@ -12,8 +11,10 @@ class Integer
     sequence
   end
 
-  def aspiring?
+  def aspiring?(max_iterations=10)
     return false if perfect? 
-    (last = aliquot_sequence.last).to_f.finite? ? last.perfect? : false
+    (last = aliquot_sequence(max_iterations).last).to_f.finite? ? 
+      last.perfect? : 
+      false
   end
 end
