@@ -12,7 +12,7 @@ class Integer
   #     345.abundant?  #=> false
   #
   def abundant?
-    return false unless self > 0
+    return false unless positive?
     σ > (2 * self)
   end
 

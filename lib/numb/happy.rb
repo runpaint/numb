@@ -1,7 +1,7 @@
 # coding: utf-8
 class Integer
   def happy?
-    return false unless self > 0
+    return false unless positive?
     n = self
     sad = '4 16 37 58 89 145 42 20'
     seq = ""

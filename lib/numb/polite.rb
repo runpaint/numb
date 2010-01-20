@@ -2,6 +2,6 @@
 class Integer
   def polite? 
     return true if self == 1
-    politeness > 0
+    politeness.positive?
   end
 end

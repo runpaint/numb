@@ -11,7 +11,7 @@ class Integer
   #     6.deficient?  #=> false
   #
   def deficient?
-    return false unless self > 0
+    return false unless positive?
     σ < (2 * self)
   end
 
