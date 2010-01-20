@@ -52,7 +52,7 @@ class Integer
 
   def divisors
     return @divisors if defined?(@divisors)
-    return [] unless self >= 0
+    return [] unless positive?
     return [1, self] if prime?
     @divisors = (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
                                            map {|n| [n, self/n]}.flatten.uniq
