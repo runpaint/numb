@@ -14,9 +14,9 @@ libs = %w{abundancy abundant achilles almost_perfect almost_prime amicable
           mms_pair mobius myriagonal narcissistic next_prev_prime n_gonal 
           nivenmorphic noncototient nth_prime number_of_divisors octagonal 
           ordinal ore parasitic pentagonal perfect perfect_power polite 
-          polydivisible poulet powerful practical prime_count prime_signature 
-          primitive_pseudoperfect primorial pronic proth quarticfree 
-          refactorable repunit rhonda rough self self_descriptive 
+          polydivisible positive poulet powerful practical prime_count 
+          prime_signature primitive_pseudoperfect primorial pronic proth 
+          quarticfree refactorable repunit rhonda rough self self_descriptive 
           semiperfect semiprime smarandache_wellin smith smooth 
           sophie_germain_prime sphenic square square_free sublime 
           sum_of_squares superabundant superperfect totient triangular 
