@@ -21,7 +21,7 @@ libs = %w{abundancy abundant achilles almost_perfect almost_prime amicable
           sophie_germain_prime sphenic square square_free sublime 
           sum_of_squares superabundant superperfect totient triangular 
           trimorphic undulating unitary_perfect unitary_divisor untouchable
-          vampire weird zeisel
+          vampire weird zeisel zerofree
 }
 
 class Integer
