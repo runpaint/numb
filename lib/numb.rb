@@ -21,7 +21,7 @@ libs = %w{abundancy abundant achilles almost_perfect almost_prime amicable
           sophie_germain_prime sphenic square square_free sublime 
           sum_of_squares superabundant superperfect totient triangular 
           trimorphic undulating unitary_perfect unitary_divisor untouchable
-          vampire weird zeisel zerofree
+          vampire weird woodall zeisel zerofree
 }
 
 class Integer
@@ -51,11 +51,10 @@ class Integer
   end
 
   def divisors
-    return @divisors if defined?(@divisors)
     return [] unless positive?
     return [1, self] if prime?
-    @divisors = (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                                           map {|n| [n, self/n]}.flatten.uniq
+    (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
+                               map {|n| [n, self/n]}.flatten.uniq
   end
 
   def sum_of_divisors
