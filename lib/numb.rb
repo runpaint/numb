@@ -21,9 +21,9 @@ libs = %w{abundancy abundant achilles aliquot_sequence almost_perfect
           semiperfect semiprime smarandache_wellin smith smooth sociable
           sophie_germain_prime sphenic square square_free sublime 
           sum_of_squares sum_of_unitary_divisors superabundant superperfect 
-          totient triangular trimorphic undulating unitary_divisor 
-          unitary_perfect unitary_sociable untouchable vampire weird wieferich 
-          woodall zeisel zerofree
+          totient triangular trimorphic undulating unitary_amicable 
+          unitary_divisor unitary_perfect unitary_sociable untouchable 
+          vampire weird wieferich woodall zeisel zerofree
 }
 
 class Integer
