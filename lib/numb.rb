@@ -63,6 +63,11 @@ class Integer
   end
   alias :σ :sum_of_divisors
 
+  def aliquot_sum
+    return 0 if zero?
+    σ - self
+  end
+
   def digital_root
     self == 0 ? 0 : 1 + ((self - 1) % 9)
   end
