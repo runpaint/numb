@@ -10,7 +10,10 @@ class Seq
   include Enumerable
   attr_accessor :exclude, :include
   def initialize(*args)
-    @include = args.first?
+    @include = args
+    if @include.size == 1 and @include.first.is_a?(Enumerable)
+      @include = @include.first
+    end
     @exclude = []
   end
 
@@ -22,6 +25,7 @@ class Seq
   end
 
   def invert
+    return [] if @include.size < 2
     Seq.new(self.begin..self.end).tap{|s| s.exclude = @include }
   end
 
