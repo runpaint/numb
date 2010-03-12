@@ -18,7 +18,7 @@ describe Integer, "#dihedral_prime?" do
     end
   end
 
-  @seq.invert.sample(10).each do |n|
+  @seq.invert.sample(100).each do |n|
     it "returns false for non-Dihedral-prime #{n}" do
       n.should_not be_dihedral_prime
     end
