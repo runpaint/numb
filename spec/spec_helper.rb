@@ -1,5 +1,5 @@
 # coding: utf-8
-require 'spec'
+require 'rspec/core'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
@@ -56,8 +56,4 @@ class Array
   def to_seq
     Seq.new *self
   end
-end
-
-Spec::Runner.configure do |config|
-    
 end

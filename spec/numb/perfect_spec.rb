@@ -1,5 +1,3 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
-
 describe Integer, "#perfect?" do
   it "returns true for the first 7 perfect numbers" do
     [6, 28, 496, 8128, 33550336, 8589869056, 137438691328].each do |n|
