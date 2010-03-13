@@ -22,7 +22,7 @@ describe Integer, "#primorial?" do
     end
   end
 
-  ((1..PRIMORIAL.last).first(20) - PRIMORIAL).uniq.each do |n|
+  PRIMORIAL.to_seq.invert.first(20).each do |n|
     it "should return false for non-primorial number #{n}" do
       n.should_not be_primorial
     end

@@ -17,10 +17,6 @@ class Integer
   def primorial
     return nil if self < 1
     return 1 if self == 1
-    if prime?
-      self * (self - 1).primorial
-    else
-      (self - 1).primorial
-    end
+    (prime? ? self : prev_prime).downto(2).select(&:prime?).reduce(:*)
   end
 end
