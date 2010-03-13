@@ -35,4 +35,7 @@ rescue LoadError
   end
 end
 
+task :irb do 
+  exec("irb -r./lib/numb")
+end
 task :default => :spec
