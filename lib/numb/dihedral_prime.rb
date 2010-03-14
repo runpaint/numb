@@ -21,11 +21,6 @@ class Integer
   def dihedral_prime?
     return false unless prime? and to_s.match(/^[01825]+$/)
     mirror = ->(n){ n.to_s.gsub(/([25])/){|orig| orig == '2' ? '5' : '2'}.to_i }
-    [upside_down, mirror[self], mirror[upside_down]].all?(&:prime?)
-  end
-
-  private
-  def upside_down
-    to_s.reverse.to_i
+    [reverse, mirror[self], mirror[reverse]].all?(&:prime?)
   end
 end

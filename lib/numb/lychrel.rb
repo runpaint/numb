@@ -1,6 +1,6 @@
 class Integer
   def palindrome?
-    to_s.reverse.to_i == self
+    reverse == self
   end
 
   def lychrel?
@@ -8,7 +8,7 @@ class Integer
     # This limit is as arbitrary as it looks
     100.times do
       return false if n.palindrome?
-      n += n.to_s.reverse.to_i
+      n += n.reverse
     end
     true
   end

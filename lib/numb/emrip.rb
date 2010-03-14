@@ -10,8 +10,6 @@ class Integer
   #     7.emrip?     #=> false
   #
   def emrip?
-    return false unless prime?
-    reversed = to_s.reverse.to_i
-    reversed != self and reversed.prime?
+    prime? and reverse != self and reverse.prime?
   end
 end
