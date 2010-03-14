@@ -1,7 +1,7 @@
 # coding: utf-8
 class Integer
   def mms_pair?(other)
-    return false unless (self == other.succ) || (other == self.succ)
+    return false unless consecutive?(other)
     sum = [self,other].map do |n|
       (n.digits + n.prime_factors.map{|p| p.digits}.flatten).reduce(:+)
     end

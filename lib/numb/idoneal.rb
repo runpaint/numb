@@ -62,4 +62,5 @@ class Integer
     end
     true
   end
+  alias :convenient? :idoneal?
 end

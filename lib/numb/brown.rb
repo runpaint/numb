@@ -1,6 +1,5 @@
 class Integer
   def brown?(n)
-    m = self
-    n.factorial.succ == m**2
+    n.factorial.consecutive?(self ** 2)
   end
 end

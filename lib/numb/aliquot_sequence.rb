@@ -6,7 +6,7 @@ class Integer
     max_iterations.floor.times do |limit|
       sequence << summatory_function[sequence.last]
       break if sequence[0..-2].include?(sequence.last)
-      return sequence << (1/0.0) if limit.succ == max_iterations
+      return sequence << (1/0.0) if limit.consecutive?(max_iterations)
     end
     sequence
   end
