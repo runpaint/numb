@@ -18,4 +18,10 @@ describe Float, "#integer?" do
       n.should_not be_integer
     end
   end
+
+  it "ignores digits past the tenth" do
+    3.00000000001.should be_integer
+    123.0000000000032.should be_integer
+    123.00000000032.should_not be_integer
+  end
 end
