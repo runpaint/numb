@@ -4,4 +4,6 @@ class Integer
     return 1 if self == 2 and n == 1
     (1..n.totient).select{|e| (self**e).modulo(n) == 1}.min or 0
   end
+  alias :haupt_exponent :modulo_order
+  alias :multiplicative_order :modulo_order
 end
