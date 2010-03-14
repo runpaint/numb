@@ -6,6 +6,6 @@ end
 
 class Float
   def integer?
-    self == to_i
+    round(10) == to_i
   end
 end

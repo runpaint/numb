@@ -6,4 +6,6 @@ class Integer
   end
   alias :haupt_exponent :modulo_order
   alias :multiplicative_order :modulo_order
+  # TODO: Add Rational#period for calculating the period of the decimal
+  # expansion of the rational in terms the multiplicative order of 10
 end
