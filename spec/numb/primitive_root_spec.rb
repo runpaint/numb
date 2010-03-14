@@ -67,4 +67,8 @@ describe Integer, "#primitive_root? (with argument)" do
       n.should be_primitive_root(7)
     end
   end
+  
+  it "returns true when asked whether 0 is a primitive root of unity" do
+    1.should be_primitive_root(0)
+  end
 end

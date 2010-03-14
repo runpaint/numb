@@ -1,6 +1,7 @@
 class Integer
   def primitive_root?(g=nil)
     if g
+      return true if g.zero? and self == 1
       coprime?(g) and g.modulo_order(self) == totient
     else
       return true if [1, 2, 4].include?(self)
