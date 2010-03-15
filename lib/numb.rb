@@ -60,6 +60,10 @@ class Integer
   def divides?(n)
     not n.zero? and (self % n).zero?
   end
+
+  def sqrt
+    Math.sqrt(self)
+  end
 end
 
 require 'prime'

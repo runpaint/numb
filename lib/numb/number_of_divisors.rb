@@ -7,11 +7,10 @@ class Integer
   def τ 
     n = self
     return @nod if defined?(@nod)
-    square_root = Math.sqrt(n)
-    @nod = (1..square_root.floor).
+    @nod = (1..sqrt.floor).
       map {|i|  n.quo(i).to_i - (n - 1).quo(i).to_i }.
       reduce(:+) * 2
-    @nod -= 1 if square_root.integer?
+    @nod -= 1 if square?
     @nod
   end
 

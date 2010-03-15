@@ -1,5 +1,5 @@
 class Integer
   def unusual?
-    prime_factors.max > Math.sqrt(self)
+    prime_factors.max > sqrt
   end
 end

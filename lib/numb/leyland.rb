@@ -1,7 +1,7 @@
 class Integer
   def leyland?
-    (2..Math.sqrt(self)).each do |x|
-      (x..Math.sqrt(self)).each do |y|
+    (2..sqrt).each do |x|
+      (x..sqrt).each do |y|
         sum = x**y + y**x
         return true if sum == self
         break if sum > self

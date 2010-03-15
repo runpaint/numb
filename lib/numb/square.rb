@@ -2,6 +2,6 @@
 class Integer
   def square?
     return false if self < 0
-    Math.sqrt(self).integer?
+    sqrt.integer?
   end
 end

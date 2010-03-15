@@ -1,6 +1,6 @@
 # coding: utf-8
 class Integer
-  def aliquot_sequence(max_iterations=(self > 100 ? 10 : Math.sqrt(self)),
+  def aliquot_sequence(max_iterations=(self > 100 ? 10 : sqrt),
                        summatory_function=->(n){ n.aliquot_sum })
     sequence = [self]
     max_iterations.floor.times do |limit|
