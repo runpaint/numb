@@ -64,4 +64,8 @@ end
 
 require 'prime'
 
+class Integer
+  alias :primaries :prime_division
+end
+
 Dir.glob(File.dirname(__FILE__) + '/numb/*.rb').each {|file| require file}
