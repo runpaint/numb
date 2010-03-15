@@ -22,6 +22,14 @@ class Integer
     divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
 
+  def sqrt
+    Math.sqrt(self)
+  end
+
+  def isqrt
+    sqrt.floor
+  end
+
   def proper_divisors
     divisors.reject {|d| d == self }
   end
@@ -29,8 +37,8 @@ class Integer
   def divisors
     return [] unless positive?
     return [1, self] if prime?
-    (1..Math.sqrt(self).floor).select { |n| (self % n).zero? }.
-                               map {|n| [n, self/n]}.flatten.uniq
+    (1..isqrt).select { |n| (self % n).zero? }.
+               map {|n| [n, self/n]}.flatten.uniq
   end
 
   def sum_of_divisors
@@ -59,10 +67,6 @@ class Integer
 
   def divides?(n)
     not n.zero? and (self % n).zero?
-  end
-
-  def sqrt
-    Math.sqrt(self)
   end
 end
 

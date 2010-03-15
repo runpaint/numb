@@ -7,7 +7,7 @@ class Integer
   def τ 
     n = self
     return @nod if defined?(@nod)
-    @nod = (1..sqrt.floor).
+    @nod = (1..isqrt).
       map {|i|  n.quo(i).to_i - (n - 1).quo(i).to_i }.
       reduce(:+) * 2
     @nod -= 1 if square?
