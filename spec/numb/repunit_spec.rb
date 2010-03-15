@@ -23,3 +23,19 @@ describe Integer, "#repunit?" do
     end
   end
 end
+
+describe Integer, "#repunit" do
+  # A002275
+  @seq = [0,1,11,111,1111,11111,111111,1111111,11111111,
+          111111111,1111111111,11111111111,111111111111,
+          1111111111111,11111111111111,111111111111111,
+          1111111111111111,11111111111111111,
+          111111111111111111,1111111111111111111,
+          11111111111111111111]
+  
+  @seq.each_with_index do |repunit, n|
+    it "returns #{repunit} for #{n}" do
+      n.repunit.should == repunit
+    end
+  end
+end
