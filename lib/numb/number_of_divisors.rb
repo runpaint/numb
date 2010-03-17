@@ -5,6 +5,8 @@ class Integer
 
   # Returns the number of divisors of self
   def τ 
+    # TODO: Consider something simpler, and perhaps faster, like
+    # primaries.map(&:last).map(&:succ).reduce(:*)
     n = self
     return @nod if defined?(@nod)
     @nod = (1..isqrt).
