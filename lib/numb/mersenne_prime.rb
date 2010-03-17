@@ -1,5 +1,5 @@
 class Integer
   def mersenne_prime?
-    prime? and repunit?(2)
+    mersenne? and prime?
   end
 end
