@@ -3,7 +3,8 @@ class Integer
   def infinitary_divisors
     pf = Hash[prime_factors.uniq.map{|f| [f, 0]}]
     bin = divisors.map do |d|
-      [d, pf.merge(Hash[d.prime_division]).
+      prime_divisors = pf.map(&:first)
+      [d, pf.merge(Hash[d.primaries]).
         values.
         map{|v| sprintf("%.#{to_s(2).size}b", v)}.join]
     end
