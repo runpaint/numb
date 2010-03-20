@@ -1,8 +1,9 @@
 # coding: utf-8
 class Integer
   def harshad?
-    return false unless self >= 1
-    (self %  digital_sum) == 0
+    self >= 1 and (self % digital_sum).zero?
   end
+
   alias :niven? :harshad?
+  alias :multidigital? :harshad?
 end
