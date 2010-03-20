@@ -13,8 +13,7 @@ class Integer
 
   def ménage?
     (1..self).each do |n|
-      m = n.ménage
-      next if m < self
+      next if (m = n.ménage) < self
       return m == self ? true : false
     end
   end
