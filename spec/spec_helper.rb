@@ -25,7 +25,7 @@ class Seq
   end
 
   def invert
-    return [] if @include.size < 2
+    return [] if @include.size < 2 or @include.size == self.end.succ - self.begin
     Seq.new(self.begin..self.end).tap{|s| s.exclude = @include }
   end
 
