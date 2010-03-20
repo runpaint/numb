@@ -7,4 +7,6 @@ class Integer
       x.number_of_divisors >= n_divisors
     end
   end
+
+  alias :julian? :highly_composite?
 end
