@@ -5,4 +5,5 @@ class Integer
   end
 
   alias :heteromecic? :pronic?
+  alias :oblong? :pronic?
 end
