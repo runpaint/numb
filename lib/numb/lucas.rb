@@ -1,10 +1,10 @@
 class Integer
   def lucas?
-    return true if (@@lucas ||= [2,1]).include?(self)
-    while @@lucas.last < self
-      @@lucas.push(@@lucas[-2] + @@lucas[-1])
+    return true if self == 2
+    (1..self).each do |n|
+      next if (l = n.lucas) < self
+      return l == self ? true : false
     end
-    @@lucas.last == self
   end
 
   def lucas
