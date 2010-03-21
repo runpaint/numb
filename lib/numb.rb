@@ -56,6 +56,7 @@ class Integer
     (1..isqrt).select { |n| (self % n).zero? }.
                map {|n| [n, self/n]}.flatten.uniq
   end
+  memoize :divisors
 
   def sum_of_divisors
     @sod ||= divisors.reduce(:+)
