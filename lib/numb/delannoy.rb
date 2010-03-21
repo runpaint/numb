@@ -22,4 +22,5 @@ class Integer
     return 1 if b.zero? or a.zero?
     [(a - 1).delannoy(b), a.delannoy(b - 1), (a - 1).delannoy(b - 1)].reduce(:+)
   end
+  memoize :delannoy
 end
