@@ -6,4 +6,5 @@ class Integer
 
   alias :heteromecic? :pronic?
   alias :oblong? :pronic?
+  alias :promic? :pronic?
 end
