@@ -1,8 +1,4 @@
 class Integer
-  def palindrome?
-    reverse == self
-  end
-
   def lychrel?
     n = self
     # This limit is as arbitrary as it looks
