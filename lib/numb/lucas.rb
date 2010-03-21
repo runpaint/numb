@@ -6,4 +6,8 @@ class Integer
     end
     @@lucas.last == self
   end
+
+  def lucas
+    lucas2(1, -1)
+  end
 end
