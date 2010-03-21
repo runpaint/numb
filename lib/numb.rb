@@ -1,5 +1,21 @@
 # coding: utf-8
+module Memoize
+  def memoize(sym)
+    aka = "_#{sym}".to_sym
+    alias_method aka, sym
+    @@NUMB ||= {}
+    Integer.send(:define_method, sym) do |*args|
+      @@NUMB[[self, sym, args]] ||= send(aka, *args)
+    end
+  end
+end
 
+[Integer, Bignum].each do |klass|
+  class << klass
+    include Memoize
+  end
+end
+  
 class Integer
   def number_of_distinct_prime_factors
     prime_factors.uniq.size
