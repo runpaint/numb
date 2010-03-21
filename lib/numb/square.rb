@@ -1,7 +1,7 @@
 # coding: utf-8
 class Integer
   def square?
-    return false if self < 0
-    sqrt.integer?
+    return false unless zero? or (positive? and to_s(16)[-1] =~ /[0149]/)
+    (sq = sqrt).finite? ? sq.integer? : nil
   end
 end

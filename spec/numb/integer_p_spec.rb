@@ -13,15 +13,15 @@ describe Float, "#integer?" do
     end
   end
 
-  [23.5, 4509.0000001, 2222981011.020].each do |n|
+  [23.5, 4509.00001, 2222981011.020].each do |n|
     it "should return false for float #{n}" do
       n.should_not be_integer
     end
   end
 
-  it "ignores digits past the tenth" do
-    3.00000000001.should be_integer
+  it "ignores digits past the seventh" do
+    3.00000001.should be_integer
     123.0000000000032.should be_integer
-    123.00000000032.should_not be_integer
+    123.000032.should_not be_integer
   end
 end

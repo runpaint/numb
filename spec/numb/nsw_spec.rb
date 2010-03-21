@@ -16,7 +16,7 @@ describe Integer, "#nsw" do
 end
 
 describe Integer, "#nsw?" do
-  @seq = NSW.first(7)
+  @seq = NSW
 
   @seq.each do |n|
     it "returns true for NSW number #{n}" do
@@ -24,7 +24,7 @@ describe Integer, "#nsw?" do
     end
   end
 
-  @seq.to_seq.invert.sample(10).each do |n|
+  @seq.to_seq.invert.sample(100).each do |n|
     it "returns false for non-NSW number #{n}" do
       n.should_not be_nsw
     end

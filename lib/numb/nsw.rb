@@ -10,7 +10,7 @@ class Integer
   memoize(:nsw)
   
   def nsw?
-    x = self**2 + 1
-    x.divides?(2) and (x/2).square?
+    m = self
+    (rhs = (m**2).succ).divides?(2) and 2 * ((rhs/2).isqrt**2) == rhs
   end
 end

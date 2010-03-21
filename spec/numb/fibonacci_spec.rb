@@ -12,7 +12,7 @@ describe Integer, "#fibonacci?" do
     end
   end
 
-  @seq.invert.sample(10).each do |n|
+  @seq.invert.sample(100).each do |n|
     it "returns false for non-Fibonacci number #{n}" do
       n.should_not be_fibonacci
     end

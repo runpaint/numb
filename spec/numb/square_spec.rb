@@ -1,24 +1,28 @@
 describe Integer, "#square?" do
-  SQUARES = [0,1,4,9,16,25,36,49,64,81,100,121,144,169,196,
-             225,256,289,324,361,400,441,484,529,576,625,676,
-             729,784,841,900,961,1024,1089,1156,1225,1296,1369,
-             1444,1521,1600,1681,1764,1849]
+  @seq = [0,1,4,9,16,25,36,49,64,81,100,121,144,169,196,
+          225,256,289,324,361,400,441,484,529,576,625,676,
+          729,784,841,900,961,1024,1089,1156,1225,1296,1369,
+          1444,1521,1600,1681,1764,1849]
   
-  it "returns true if the number is square" do
-    SQUARES.each do |number|
-      number.should be_square
+  @seq.each do |n|
+    it "returns true for square number #{n}" do
+      n.should be_square
     end
   end
 
-  it "returns false if the number isn't square" do
-    ((1..1850).to_a - SQUARES).each do |number|
-      number.should_not be_square
+  @seq.to_seq.invert.each do |n|
+    it "returns false for non-square number #{n}" do
+      n.should_not be_square
     end
   end
 
   it "returns false for negative numbers" do
-    [-1, -378, -9].each do |number|
-      number.should_not be_square
+    [-1, -378, -9].each do |n|
+      n.should_not be_square
     end
+  end
+
+  it "returns nil when the square root is infinite" do
+    9999999880000000359859986946294623781838875946012712893365986548632235701967954558670969253503997913415008896487205684793069342787691170258832794954572186327945677037037154860793120217960493002317298159645342431034751955276791509386257991014312642060444444445753597283950617283950617283950617283950617283950617283950617283950617283950617284297678218281.square?.should be_nil
   end
 end

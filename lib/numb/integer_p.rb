@@ -6,6 +6,6 @@ end
 
 class Float
   def integer?
-    round(10) == to_i
+    !!(sprintf("%f", self) =~ /\.0+$/)
   end
 end
