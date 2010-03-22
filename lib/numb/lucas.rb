@@ -1,10 +1,6 @@
 class Integer
   def lucas?
-    return true if self == 2
-    (1..self).each do |n|
-      next if (l = n.lucas) < self
-      return l == self ? true : false
-    end
+    in_sequence?(:lucas, [2])
   end
 
   def lucas
