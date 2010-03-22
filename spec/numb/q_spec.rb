@@ -21,6 +21,8 @@ describe Integer, "#q?" do
     end
   end
 
+  # This is unsatisfactory because the abscence of a term in A005185 does not
+  # imply the sequence does not contain it...
   Q.to_seq.invert.each do |n|
     it "returns false for non-Q-number #{n}" do
       n.should_not be_q
