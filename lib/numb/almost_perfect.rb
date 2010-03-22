@@ -5,4 +5,5 @@ class Integer
   end
 
   alias :least_deficient? :almost_perfect?
+  alias :slightly_defective? :almost_perfect?
 end
