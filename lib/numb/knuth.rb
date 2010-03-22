@@ -7,9 +7,6 @@ class Integer
   end
 
   def knuth?
-    downto(0) do |n|
-      next if (k = n.knuth) > self
-      return k == self ? true : false
-    end
+    in_sequence?(range: downto(0), seq: :knuth, cond: :>)
   end
 end
