@@ -4,6 +4,6 @@ class Integer
   end
 
   def catalan?
-    in_sequence?(:catalan)
+    in_sequence?(seq: :catalan)
   end
 end

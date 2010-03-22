@@ -1,6 +1,6 @@
 class Integer
   def jacobsthal_lucas?
-    in_sequence?(:jacobsthal_lucas, [2])
+    in_sequence?(seq: :jacobsthal_lucas, initial: 2)
   end
 
   def jacobsthal_lucas

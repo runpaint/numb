@@ -1,6 +1,6 @@
 class Integer
   def lucas?
-    in_sequence?(:lucas, [2])
+    in_sequence?(seq: :lucas, initial: [2])
   end
 
   def lucas

@@ -1,9 +1,10 @@
 # coding: utf-8
 class Integer 
-  def in_sequence?(m, initial=[], cond = :<)
-    return true if initial.include?(self)
-    (1..self).each do |n|
-      next if (term = n.send(m)).send(cond, self)
+  def in_sequence?(args)
+    args = {range: (1..self), cond: :<, initial: []}.merge(args)
+    return true if Array(args[:initial]).include?(self)
+    args[:range].each do |n|
+      next if (term = n.send(args[:seq])).send(args[:cond], self)
       return term == self ? true : false
     end
   end

@@ -1,6 +1,6 @@
 class Integer
   def bell?
-    in_sequence?(:bell)
+    in_sequence?(seq: :bell)
   end
 
   def bell
