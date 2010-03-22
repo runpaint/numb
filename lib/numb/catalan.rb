@@ -4,10 +4,6 @@ class Integer
   end
 
   def catalan?
-    n = -1
-    loop do
-      return true if (cat = (n += 1).catalan) == self
-      return false if cat > self
-    end
+    in_sequence?(:catalan)
   end
 end
