@@ -5,5 +5,7 @@ class Integer
     return 0 if (self < k or k < 0)
     entringer(k - 1) + (self - 1).entringer(self - k)
   end
+
+  memoize :entringer
 end
 
