@@ -1,16 +1,13 @@
 class Integer
   def bell?
-    triangle = [[1]]
-    r = 1
-    loop do
-      row = [triangle[r - 1][r - 1]]
-      (1..r).each do |c|
-        row << triangle[r - 1][c - 1] + row[c - 1]
-      end
-      triangle[r] = row
-      return false if row.first > self
-      return true if row.first == self
-      r += 1
-    end
+    in_sequence?(:bell)
   end
+
+  def bell
+    n = self
+    return 1 if zero?
+    (0..(n-1)).map{|k| k.bell * (n-1).choose(k)}.reduce(:+)
+  end
+
+  memoize :bell
 end
