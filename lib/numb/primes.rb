@@ -156,4 +156,9 @@ class Integer
     return [] if zero?
     prime_division.map{|pair| [pair.first] * pair.last}.flatten
   end
+
+  def wieferich_prime?
+    return false unless prime?
+    (2**(self - 1)).modulo(self ** 2) == 1
+  end
 end
