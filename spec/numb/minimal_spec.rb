@@ -5,7 +5,7 @@ describe Integer, "#minimal?" do
           2880,3072,3600,4096,5040,5184,6300,6480,6720,7560,
           9216,10080].to_seq
 
-  @seq.first(20).sample(10).each do |n|
+  @seq.first(25).each do |n|
     it "should return true for minimal number #{n}" do
       n.should be_minimal
     end

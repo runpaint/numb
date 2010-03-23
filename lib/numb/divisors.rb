@@ -313,10 +313,19 @@ class Integer
   alias :number_of_divisors :τ 
   alias :d :τ 
 
-  def minimal?
-    div_n = number_of_divisors
-    (self-1).downto(1).all? do |n|
-      n.number_of_divisors != div_n
+  def first_with_n_divisors
+    return 0 if zero?
+    return nil unless positive?
+
+    x = 1
+    loop do
+      return x if x.τ == self
+      x += 1
     end
+  end
+  memoize :first_with_n_divisors
+
+  def minimal?
+    τ.first_with_n_divisors == self
   end
 end
