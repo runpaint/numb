@@ -286,7 +286,30 @@ class Integer
     prime_factors.none?{|f| f > b}
   end
 
+  def rough?(k)
+    prime_factors.all?{|f| f >= k}
+  end
+
   def super_poulet?
     poulet? and divisors.all?{|d|  ((2**d) - 2).divides?(d)}
   end
+
+  # Algorithm derived from Formulas for pi(n) and the n-th prime by Sebastian
+  # Martin Ruiz and Jonathan Sondow [arXiv:math/0210312v2 [math.NT]]
+
+  # Returns the number of divisors of self
+  def τ 
+    # TODO: Consider something simpler, and perhaps faster, like
+    # primaries.map(&:last).map(&:succ).reduce(:*)
+    n = self
+    return @nod if defined?(@nod)
+    @nod = (1..isqrt).
+      map {|i|  n.quo(i).to_i - (n - 1).quo(i).to_i }.
+      reduce(:+) * 2
+    @nod -= 1 if square?
+    @nod
+  end
+
+  alias :number_of_divisors :τ 
+  alias :d :τ 
 end
