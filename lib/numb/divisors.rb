@@ -107,23 +107,6 @@ class Integer
 
   alias :wasteful? :extravagant?
 
-  def number_of_distinct_prime_factors
-    prime_factors.uniq.size
-  end
-  alias :omega :number_of_distinct_prime_factors
-  alias :ω :number_of_distinct_prime_factors
-
-  def number_of_prime_factors
-    prime_factors.size
-  end
-  alias :bigomega :number_of_prime_factors
-  alias :Ω :number_of_prime_factors
-
-  def prime_factors
-    return [] if zero?
-    prime_division.map{|pair| [pair.first] * pair.last}.flatten
-  end
-
   def politeness
     divisors.select{|d| d > 1}.select{|d| d.odd?}.size
   end
@@ -306,10 +289,4 @@ class Integer
   def super_poulet?
     poulet? and divisors.all?{|d|  ((2**d) - 2).divides?(d)}
   end
-end
-
-require 'prime'
-
-class Integer
-  alias :primaries :prime_division
 end
