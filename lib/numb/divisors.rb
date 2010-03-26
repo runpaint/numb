@@ -382,4 +382,8 @@ class Integer
   def minimal?
     τ.first_with_n_divisors == self
   end
+
+  def square_part
+    divisors.sort.reverse.each{|d| return d if d.square?}
+  end
 end
