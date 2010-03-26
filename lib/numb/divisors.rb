@@ -313,17 +313,71 @@ class Integer
   alias :number_of_divisors :τ 
   alias :d :τ 
 
-  def first_with_n_divisors
-    return 0 if zero?
-    return nil unless positive?
+  def perfect_power
+    return 1 if (n = self) <= 1
+    this = (n - 1).perfect_power.succ
+    this += 1 while (this.prime? or not this.perfect_power?)
+    this
+  end
+  memoize :perfect_power
 
-    x = 1
-    loop do
-      return x if x.τ == self
-      x += 1
+  def first_with_n_divisors
+    if zero? then 0
+    elsif self == 1 then 1
+    elsif not positive? then nil
+    else
+      pf = prime_factors
+      if pf.uniq == [2]
+        list = []
+        Prime.each do |prime|
+          break if prime > self
+          list << prime
+          exp = 1
+          loop do
+            pow2 = 2 ** exp
+            break if pow2 > self
+            prime **= pow2
+            break if prime > self
+            list << prime
+          end
+        end
+        list.sort.uniq.first(pf.size).reduce(:*)
+      else
+        limit = Prime.first(pf.size).zip(pf.reverse).map{|b,e| b**(e-1)}.reduce(:*)
+        neighbour = ->(e) { (self/e).divisors.reject{|d| d > e} }
+        x, div, exponents = self, divisors, {}
+
+        Prime.each do |b| 
+          max_exponent = Math.log(limit, b).floor
+          d = div.reject{|d| d > max_exponent}.sort.reverse - [1]
+          unless b == 2
+            prev_neighbours = exponents[exponents.keys.last].values.flatten
+            d.reject!{|e, n| not prev_neighbours.include?(e)}
+          end
+          exponents[b] = Hash[d.map{|e| [e, neighbour.(e)]}]
+          break if (x /= b) < 1
+        end
+
+        complete_chain = ->(b, e, goal=self, chain=nil) do
+          chain ||= {chain: [[b, e]]}
+          return chain unless exponents.key?(b) and exponents[b].key?(e)
+          exponents[b][e].map do |n|
+            this = {chain: chain[:chain].dup}
+            this[:chain].pop if this[:chain].last.first == b.next_prime
+            this[:chain] << [b.next_prime, n]
+            e * n < goal ? complete_chain[b.next_prime, n, goal/e, this] : this
+          end
+        end
+
+        exponents[2].keys.map do |e,|
+          complete_chain[2, e].flatten.map{|c| Hash[c[:chain]]}.
+            select{|c| c.values.reduce(:*) == self}.
+            map{|c| c.map{|b,e| b**(e-1)}.reduce(:*)}.
+            reject{|prod| prod > limit}
+        end.flatten.min or limit
+      end
     end
   end
-  memoize :first_with_n_divisors
 
   def minimal?
     τ.first_with_n_divisors == self
