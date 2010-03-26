@@ -168,10 +168,7 @@ class Integer
   def highly_composite?
     return false if self > 6 and not (abundant? or primorial_product?)
     return true if [1,4,36].include?(self)
-    n_divisors = number_of_divisors
-    (self-1).downto(1).none? do |x|
-      x.number_of_divisors >= n_divisors
-    end
+    minimal? and (self - 1).downto(1).all?{|n| τ > n.τ}
   end
 
   alias :julian? :highly_composite?
@@ -312,6 +309,7 @@ class Integer
 
   alias :number_of_divisors :τ 
   alias :d :τ 
+  memoize :τ 
 
   def perfect_power
     return 1 if (n = self) <= 1
@@ -347,6 +345,8 @@ class Integer
         neighbour = ->(e) { (self/e).divisors.reject{|d| d > e} }
         x, div, exponents = self, divisors, {}
 
+        # TODO: Consider using limit's primaries as an upper limit on the
+        # exponents
         Prime.each do |b| 
           max_exponent = Math.log(limit, b).floor
           d = div.reject{|d| d > max_exponent}.sort.reverse - [1]

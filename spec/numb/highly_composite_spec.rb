@@ -6,7 +6,7 @@ describe Integer, "#highly_composite?" do
           221760,277200,332640,498960,554400,665280,720720,
           1081080,1441440,2162160].to_seq
 
-  @seq.first(20).sample(5).each do |n|
+  @seq.first(18).sample(10).each do |n|
     it "should return true for highly composite integer #{n}" do
       n.should be_highly_composite
     end
