@@ -386,4 +386,8 @@ class Integer
   def square_part
     divisors.sort.reverse.each{|d| return d if d.square?}
   end
+
+  def ruler
+    (2 * self).primaries.first.last
+  end
 end
