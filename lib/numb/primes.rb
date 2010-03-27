@@ -161,4 +161,8 @@ class Integer
     return false unless prime?
     (2**(self - 1)).modulo(self ** 2) == 1
   end
+
+  def chen_prime?
+    prime? and (succ.succ.prime? or succ.succ.semiprime?)
+  end
 end

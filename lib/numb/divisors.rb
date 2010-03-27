@@ -102,7 +102,7 @@ class Integer
   #     81.extravagant?   #=> false
   #
   def extravagant?
-    digits.size < prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
+    digits.size < primaries.flatten.reject{|d|d==1}.join.to_i.digits.size
   end
 
   alias :wasteful? :extravagant?
@@ -149,7 +149,7 @@ class Integer
   def σe
     # TODO: If squarefree, the sum of a number’s e-divisors is the number
     # itself. Do we gain anything significant by special-casing this?
-    e_divisors.reduce(:+)
+    e_divisors.reduce :+
   end
 
   alias :sum_of_e_divisors :σe
@@ -204,7 +204,7 @@ class Integer
   #     1287.equidigital?  #=> false
   #
   def equidigital?
-    digits.size == prime_division.flatten.reject{|d|d==1}.join.to_i.digits.size
+    digits.size == primaries.flatten.reject{|d|d==1}.join.to_i.digits.size
   end
 
   def giuga?
@@ -276,7 +276,7 @@ class Integer
 
   def smith?
     return false if prime?
-    digital_sum == prime_division.map{|d,e| d.digital_sum * e}.reduce(:+)
+    digital_sum == primaries.map{|d,e| d.digital_sum * e}.reduce(:+)
   end
 
   def smooth?(b)
@@ -345,8 +345,6 @@ class Integer
         neighbour = ->(e) { (self/e).divisors.reject{|d| d > e} }
         x, div, exponents = self, divisors, {}
 
-        # TODO: Consider using limit's primaries as an upper limit on the
-        # exponents
         Prime.each do |b| 
           max_exponent = Math.log(limit, b).floor
           d = div.reject{|d| d > max_exponent}.sort.reverse - [1]
