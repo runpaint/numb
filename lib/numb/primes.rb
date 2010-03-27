@@ -151,6 +151,7 @@ class Integer
   end
   alias :bigomega :number_of_prime_factors
   alias :Ω :number_of_prime_factors
+  alias :roundness :number_of_prime_factors
 
   def prime_factors
     return [] if zero?
