@@ -153,6 +153,10 @@ class Integer
   alias :Ω :number_of_prime_factors
   alias :roundness :number_of_prime_factors
 
+  def liouville
+    (-1)**Ω
+  end
+
   def prime_factors
     return [] if zero?
     prime_division.map{|pair| [pair.first] * pair.last}.flatten
