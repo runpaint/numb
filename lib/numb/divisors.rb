@@ -132,10 +132,13 @@ class Integer
   end
   memoize :divisors
 
-  def sum_of_divisors
-    @sod ||= divisors.reduce(:+)
+  def sum_of_divisors(k=1)
+    (k == 1 ? divisors : divisors.map{|d| d**k}).reduce(:+)
   end
+  
   alias :σ :sum_of_divisors
+  
+  memoize :σ
 
   def aliquot_sum
     return 0 if zero?
