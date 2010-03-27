@@ -390,4 +390,28 @@ class Integer
   def ruler
     (2 * self).primaries.first.last
   end
+
+  def smarandache
+    if    self == 1                       then 1
+    elsif prime?                          then self
+    elsif factorial?                      then factorial_of?
+    elsif primaries.map(&:last).uniq == 1 then primaries.last.first
+    elsif primaries.size == 1
+      p, k = primaries.first
+      return p*k if k < p
+      i = k/p
+      loop do
+        sum = i
+        r = i / p
+        while r > 0
+          sum += r
+          r /= p
+        end
+        return i*p if sum >= k
+        i += 1
+      end
+    else
+      primaries.map{|b,e| (b**e).smarandache}.max
+    end
+  end
 end
