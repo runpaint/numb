@@ -415,4 +415,11 @@ class Integer
       primaries.map{|b,e| (b**e).smarandache}.max
     end
   end
+
+  def ramanujan_tau
+    return 1 if (n = self) == 1
+    n**4 * n.σ - 24 * (1...n).map do |k|
+      k**2 * (35 * k**2 - 52 * k * n + 18 * n**2) * k.σ * (n-k).σ
+    end.reduce(:+)
+  end
 end
