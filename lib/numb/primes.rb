@@ -170,4 +170,8 @@ class Integer
   def chen_prime?
     prime? and (succ.succ.prime? or succ.succ.semiprime?)
   end
+
+  def mangoldt
+    prime? ? Math.log(prime_factors.first) : 0
+  end
 end
