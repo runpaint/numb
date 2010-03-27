@@ -7,4 +7,8 @@ class Integer
 
   alias :möbius :mobius
   alias :μ :mobius
+
+  def mertens
+    (1..self).map(&:μ).reduce(:+)
+  end
 end
