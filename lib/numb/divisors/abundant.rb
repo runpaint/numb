@@ -55,4 +55,3 @@ class Integer
   end
   memoize :superabundant?
 end
-

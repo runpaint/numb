@@ -14,7 +14,7 @@ describe Integer, "#bernoulli" do
   @seq = @numerators.zip(@denominators).map{|n,d| Rational(n,d)}
   @seq = ([0.to_r] * @numerators.size).zip(@seq).flatten
   @seq.shift 
-  @seq[1] = -Rational(1, 2)
+  @seq[1] = -2.reciprocal
   @seq.each_with_index do |r, n| 
     it "returns #{r} for #{n}" do
       n.bernoulli.should == r

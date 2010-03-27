@@ -8,6 +8,10 @@ class Integer
     coprime?(p) and residue? p, 3
   end
 
+  def reciprocal
+    self ** -1
+  end
+
   private
   def residue?(p, e=1)
     (1...p).any?{|x| (x**e).modulo(p) == self}
