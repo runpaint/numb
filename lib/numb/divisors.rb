@@ -422,4 +422,17 @@ class Integer
       k**2 * (35 * k**2 - 52 * k * n + 18 * n**2) * k.σ * (n-k).σ
     end.reduce(:+)
   end
+
+  def ordinary?
+    return true if self == 1
+    pf = prime_factors.sort.reverse
+    Prime.first(pf.size).
+          zip(pf).
+          map{|b,e| b**(e-1)}.
+          reduce(:*) == first_with_n_divisors
+  end
+
+  def exceptional?
+    not ordinary?
+  end
 end
