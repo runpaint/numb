@@ -65,6 +65,22 @@ class Integer
   alias :⊥ :coprime?
   alias :stranger? :coprime?
 
+  # An enumeration of numbers coprime to `x` from `self` onward. If a
+  # block is given, it is yielded to with the next number in the
+  # sequence; otherwise, an `Enumerator` is returned.
+  # 
+  #     4.coprime(3).first(5) #=> [4, 5, 7, 8, 10]
+  #
+  # @param [Integer] x each number in the enumeration is coprime with `x`
+  # @yield [Integer] n next number that is >= `self` and coprime with `x`
+  # @return [Enumerator] returned if the block is omitted 
+  def coprime(x)
+    return enum_for(__method__, x) unless block_given?
+    (self..Float::INFINITY).each do |n|
+      yield n if n.coprime?(x)
+    end
+  end
+
   # A deficient number is a number n for which σ(n) < 2n. That is, the sum of
   # its divisors are less than the number. (To calculate the sum of divisors
   # for an arbitrary integer see Integer#σ).
@@ -347,10 +363,13 @@ class Integer
         limit = Prime.first(pf.size).zip(pf.reverse).map{|b,e| b**(e-1)}.reduce(:*)
         neighbour = ->(e) { (self/e).divisors.reject{|d| d > e} }
         x, div, exponents = self, divisors, {}
-
         Prime.each do |b| 
-          max_exponent = Math.log(limit, b).floor
-          d = div.reject{|d| d > max_exponent}.sort.reverse - [1]
+          d = begin
+            max_exponent = Math.log(limit, b).floor
+            div.reject{|d| d > max_exponent}
+          rescue FloatDomainError
+            div
+          end.sort.reverse - [1]
           unless b == 2
             prev_neighbours = exponents[exponents.keys.last].values.flatten
             d.reject!{|e, n| not prev_neighbours.include?(e)}
@@ -358,7 +377,6 @@ class Integer
           exponents[b] = Hash[d.map{|e| [e, neighbour.(e)]}]
           break if (x /= b) < 1
         end
-
         complete_chain = ->(b, e, goal=self, chain=nil) do
           chain ||= {chain: [[b, e]]}
           return chain unless exponents.key?(b) and exponents[b].key?(e)
