@@ -472,7 +472,7 @@ class Integer
   #     56.xgcd(72) #=> [8, 4, -3]
   #
   # @param [Integer] b the number `self` is divided by
-  # @returns [Array<Integer>] GCD, `x`, and `y`
+  # @return [Array<Integer>] GCD, `x`, and `y`
   def xgcd b
     a = self
     x, y, u, v = 0, 1, 1, 0
