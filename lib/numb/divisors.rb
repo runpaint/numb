@@ -453,4 +453,34 @@ class Integer
   def exceptional?
     not ordinary?
   end
+
+  # Computes the extended greatest common divisor of `self` and `b`
+  #
+  # The extended Euclidean algorithm is an extension to the Euclidean
+  # algorithm for finding the GCD of integers `a` and `b`: it also
+  # finds the integers `x` and `y` in Bézout's identity:
+  #
+  #    ax + by = gcd(a, b)
+  #
+  # This method takes `self` as `a`, and `b` as an argument, and
+  # returns their GCD, `x`, and `y`
+  #
+  # For example, `21.xgcd(48)` is `[3, 7, -3]` because `21.gcd(48)` is
+  # `3`, and `21 * 7 + 48 * -3` is `3`.
+  #
+  #     3.xgcd(-65) #=> [1, 22, 1]
+  #     56.xgcd(72) #=> [8, 4, -3]
+  #
+  # @param [Integer] b the number `self` is divided by
+  # @returns [Array<Integer>] GCD, `x`, and `y`
+  def xgcd b
+    a = self
+    x, y, u, v = 0, 1, 1, 0
+    while a != 0
+      q, r = b/a, b%a 
+      m, n = x-u*q, y-v*q
+      b, a, x, y, u, v = a, r, u, v, m, n
+    end    
+    self < 0 ? [b, x, y].map(&:-@) : [b, x, y]
+  end
 end
