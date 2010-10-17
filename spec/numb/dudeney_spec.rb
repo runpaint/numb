@@ -8,7 +8,7 @@ describe Integer, "#dudeney?" do
     end
   end
 
-  @seq.invert.sample(10).each do |n|
+  @seq.invert.sample(100).each do |n|
     it "returns false for non-Dudeney number #{n}" do
       n.should_not be_dudeney
     end
