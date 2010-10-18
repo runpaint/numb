@@ -98,4 +98,16 @@ class Integer
   def legendre p
     kronecker(p) if p.odd? and p > 2 and p.prime?
   end
+
+  # Returns the Jacobi symbol for `a`/`n`
+  #
+  # For any integer `a` and any positive odd integer `n` the Jacobi
+  # symbol is defined as the product of the Legendre symbols
+  # corresponding to the prime factors of `n`.
+  # 
+  # @param [Integer] p The "denominator"
+  # @return [Integer, nil] -1, 0, 1, or `nil` 
+  def jacobi n
+    kronecker(n) if n.odd? and n > 0
+  end
 end
