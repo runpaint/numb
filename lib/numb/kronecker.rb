@@ -80,4 +80,22 @@ class Integer
       end   
     end 
   end
+
+  # Returns the Legendre symbol for `self`/`p`
+  #
+  # The Legendre symbol is a multiplicative function with values 1,
+  # −1, 0: its value on a (nonzero) quadratic residue mod `p` is 1 and
+  # on a quadratic non-residue is −1. It is defined only when `p` is
+  # an odd prime.
+  # 
+  #    12345.legendre 331 #=> -1
+  #    0.legendre 83 #=> 0
+  #    55.legendre 10 #=> nil
+  #    6.legendre 7 #=> -1
+  #
+  # @param [Integer] p The "denominator"
+  # @return [Integer, nil] -1, 0, 1, or `nil` 
+  def legendre p
+    kronecker(p) if p.odd? and p > 2 and p.prime?
+  end
 end
