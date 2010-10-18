@@ -33,6 +33,9 @@ class Integer
  
   def almost_perfect?
     return true if self == 1
+    # TODO: All known almost perfect numbers are powers of 2. If self
+    # is within the range of integers thus tested, a power_of?(2) test
+    # would avoid the need to factorise.
     proper_divisors.reduce(:+) == self - 1
   end
 
